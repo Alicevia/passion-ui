@@ -1,0 +1,20 @@
+{
+  "name": "@alicevia/vue3-components-monorepo",
+  "version": "0.0.0",
+  "private": "true",
+  "scripts": {
+    "dev": "pnpm dev --filter @alicevia/lemon-ui",
+    "site": "pnpm docs:dev --filter website"
+  },
+  "workspaces": [
+    "packages/*",
+    "website"
+  ],
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "typescript": "~4.7.3"
+  },
+  "dependencies": {
+    "vue": "^3.2.36"
+  }
+}
