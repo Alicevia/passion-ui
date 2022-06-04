@@ -1,6 +1,6 @@
 <template>
   <div>
-    <l-button></l-button>
+    <l-button>星期四 fucking crazy kfc</l-button>
   </div>
 </template>
 

@@ -1,11 +1,13 @@
 <template>
-  <button>3123</button>
+  <button>
+    <slot></slot>
+  </button>
 </template>
 
 <script setup lang="ts"></script>
 <script>
 export default {
-  name: "Button",
-};
+  name: 'Button'
+}
 </script>
 <style scoped></style>
