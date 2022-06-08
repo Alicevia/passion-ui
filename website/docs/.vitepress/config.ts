@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-
+import {demoBlockPlugin} from 'vitepress-theme-demoblock'
 export default defineConfig({
   lang: 'zh-CN',
   base:'/',
@@ -28,9 +28,9 @@ export default defineConfig({
       }
     ]
   },
-  // markdown: {
-  //   config: (md) => {
-  //     md.use(require('./markdown-it-custom-anchor'))
-  //   }
-  // }
+  markdown: {
+    config: (md) => {
+      md.use(demoBlockPlugin)
+    }
+  }
 })
