@@ -25,4 +25,5 @@
     "markdown"
   ],
   "eslint.enable": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
 }

@@ -4,7 +4,7 @@
   "private": "true",
   "scripts": {
     "dev": "pnpm --filter @alicevia/lemon-ui dev",
-    "site": "pnpm --filter website run docs:dev "
+    "site": "pnpm --filter website run docs:dev  --port 3003"
   },
   "workspaces": [
     "packages/*",
