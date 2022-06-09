@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": "true",
   "scripts": {
-    "dev": "pnpm --filter @alicevia/lemon-ui dev",
+    "dev": "pnpm --filter @alicevia/passion-ui dev",
     "site": "pnpm --filter website run docs:dev  --port 3003"
   },
   "workspaces": [

@@ -15,7 +15,7 @@ importers:
       eslint: registry.npmmirror.com/eslint/8.17.0
       typescript: registry.npmmirror.com/typescript/4.7.3
 
-  packages/lemon-ui:
+  packages/passion-ui:
     specifiers:
       '@alicevia/eslint-config': ^1.0.13
       '@types/node': ^16.11.38
@@ -43,8 +43,11 @@ importers:
 
   website:
     specifiers:
+      '@alicevia/passion-ui': workspace:^1.0.0
       vitepress: 1.0.0-alpha.1
       vitepress-theme-demoblock: ^1.4.2
+    dependencies:
+      '@alicevia/passion-ui': link:../packages/passion-ui
     devDependencies:
       vitepress: registry.npmmirror.com/vitepress/1.0.0-alpha.1
       vitepress-theme-demoblock: registry.npmmirror.com/vitepress-theme-demoblock/1.4.2
