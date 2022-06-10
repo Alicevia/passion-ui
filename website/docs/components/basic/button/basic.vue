@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <p-button>123</p-button>
-    <p-button>12243</p-button>
-    <p-button>fds</p-button>
+  <div class="basic">
+    <p-button>primary</p-button>
+    <p-button>info</p-button>
+    <p-button>success</p-button>
+    <p-button>warning</p-button>
+    <p-button>error</p-button>
   </div>
 </template>
 
@@ -10,4 +12,8 @@
 import { PButton } from 'passion-ui'
 </script>
 <style scoped>
+.basic {
+  display: flex;
+  gap:10px
+}
 </style>

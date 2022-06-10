@@ -1,4 +1,5 @@
----
+home
+<!-- ---
 home: true
 actionText: 开始
 actionLink: /guide/
@@ -20,4 +21,4 @@ features:
   - title: 🔑 完全类型化的API
     details: 灵活的 API 和完整的 TypeScript 类型。
 footer: MIT Licensed | Copyright © 2019-present Evan You & Vite Contributors
----
+--- -->

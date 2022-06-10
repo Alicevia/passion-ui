@@ -1,21 +1,41 @@
 <template>
-<div>
+<div class="demo">
+  <div>
+    <component :is="vnode"></component>
+  </div>
+  <div>
   <slot></slot>
-  <pre>
-    {{source}}
-  </pre>
+
+  </div>
 </div>
 </template>
 
 <script setup lang='ts'>
-import { useSlots } from 'vue';
+import { useSlots,defineAsyncComponent } from 'vue';
 const props = defineProps({
-  source: {
+  src: {
     type: String,
     default: '',
   },
 })
-console.log(props.source,'34')
+// const vnode =defineAsyncComponent(() => 
+//   new Promise((resolve, reject) => {
+//       resolve({
+//         render(){
+//           return '123'
+//         }
+//       })
+//     }))
+const vnode =defineAsyncComponent(() => import('../../../components/basic/button/basic.vue'))
+// const vnode =defineAsyncComponent(() => import(props.src))
+
+console.log(props.src)
 </script>
 <style scoped>
+.demo {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+
+}
 </style>

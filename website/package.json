@@ -13,10 +13,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "markdown-it-container": "^3.0.0",
     "vitepress": "1.0.0-alpha.1",
     "vitepress-theme-demoblock": "^1.4.2"
-  },
-  "dependencies": {
-    "@alicevia/passion-ui": "workspace:^1.0.0"
   }
 }

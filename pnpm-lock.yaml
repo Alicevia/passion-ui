@@ -43,12 +43,11 @@ importers:
 
   website:
     specifiers:
-      '@alicevia/passion-ui': workspace:^1.0.0
+      markdown-it-container: ^3.0.0
       vitepress: 1.0.0-alpha.1
       vitepress-theme-demoblock: ^1.4.2
-    dependencies:
-      '@alicevia/passion-ui': link:../packages/passion-ui
     devDependencies:
+      markdown-it-container: registry.npmmirror.com/markdown-it-container/3.0.0
       vitepress: registry.npmmirror.com/vitepress/1.0.0-alpha.1
       vitepress-theme-demoblock: registry.npmmirror.com/vitepress-theme-demoblock/1.4.2
 
