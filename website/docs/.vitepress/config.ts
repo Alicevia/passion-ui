@@ -1,6 +1,11 @@
 import { defineConfig } from 'vitepress'
+import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import markdownItContainer from 'markdown-it-container'
+import { MarkDownTransform } from './plugins/markdownTransform'
+import prism from 'prismjs'
+console.log(prism)
+
 let config =  defineConfig({
   lang: 'zh-CN',
   base:'/',
@@ -68,35 +73,47 @@ let config =  defineConfig({
     config: (md) => {
       md.use(markdownItContainer, 'demo', {
         validate: (params) => {
-          console.log('cs',params)
-          return params.trim().match(/^demo\s+(.*)$/);
+          console.log(params,'--',!!params.trim().match(/^demo\s*(.*)$/))
+          return !!params.trim().match(/^demo\s*(.*)$/);
         },
         render(tokens, idx) {
-          let propsAry = tokens[idx].info.trim().match(/^demo\s+(.*)$/);
-          console.log('token',idx)
+          let propsAry = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+          console.log('xxx')
           if (tokens[idx].nesting === 1) {
-            let component =propsAry && propsAry[1];
-            let content = tokens[idx + 2].content;
-            console.log(component,content);
-            // opening tag
-            return '<details>\n';
+            let title =propsAry && propsAry[1];
+            let componentAddress = tokens[idx + 2]?.content||'';
+            let code=''
+            if (tokens[idx + 2].type === 'inline') {
+             code= readFileSync(
+                resolve('./docs/components',`./${componentAddress}.vue`),'utf-8'
+              )
+            }
+            return  `<Demo :demos='demos' 
+            code="${encodeURIComponent(prism.highlight(code,prism.languages.html, 'html'))}"
+          componentAddress="${componentAddress}" >`
        
-          } else {
-            // closing tag
-            return '</details>\n';
           }
+          return  `</Demo>`;
         },
       })
     },
   },
   vite:{
+    plugins:[MarkDownTransform()],
     resolve:{
       alias:{
         'passion-ui': resolve('../packages/passion-ui/packages/components'),
         '@': resolve('./docs'),
       }
+    },
+    server:{
+    watch:{
+      alwaysStat:true,
+      persistent:true,
+    }
     }
   }
 })
+
 
 export default config

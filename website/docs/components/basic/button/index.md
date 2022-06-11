@@ -1,16 +1,7 @@
-::: demo
-button/icon
+# Button
+
+::: demo 
+basic/button/basic
 :::
-
-
-
-
-
-
-
-
-
-
-
 
 

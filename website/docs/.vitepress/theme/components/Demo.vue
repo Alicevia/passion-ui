@@ -1,41 +1,48 @@
 <template>
-<div class="demo">
-  <div>
-    <component :is="vnode"></component>
+  <div class="demo">
+    <div>
+      <component :is="demos[componentAddress]"></component>
+    </div>
+    <div>
+      <div>
+        <slot></slot>
+      </div>
+      <details>
+        <summary>show me the code</summary>
+        <pre class="code" ><code  v-html="source"></code></pre>
+      </details>
+    </div>
   </div>
-  <div>
-  <slot></slot>
-
-  </div>
-</div>
 </template>
 
 <script setup lang='ts'>
-import { useSlots,defineAsyncComponent } from 'vue';
-const props = defineProps({
-  src: {
-    type: String,
-    default: '',
-  },
-})
-// const vnode =defineAsyncComponent(() => 
-//   new Promise((resolve, reject) => {
-//       resolve({
-//         render(){
-//           return '123'
-//         }
-//       })
-//     }))
-const vnode =defineAsyncComponent(() => import('../../../components/basic/button/basic.vue'))
-// const vnode =defineAsyncComponent(() => import(props.src))
+import { computed } from 'vue';
 
-console.log(props.src)
+const props = defineProps({
+  demos: {
+    type: Object,
+  },
+  componentAddress: {
+    type: String
+  },
+  code: {
+    type: String
+  }
+})
+
+const source = computed(() => decodeURIComponent(props.code))
 </script>
 <style scoped>
 .demo {
   margin-top: 10px;
   display: flex;
   flex-flow: column nowrap;
-
+ 
 }
+
+.code {
+  position: relative;
+  background-color: var(--vp-c-gray-light-5);
+}
+
 </style>

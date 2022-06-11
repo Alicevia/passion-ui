@@ -7,8 +7,10 @@
     <p-button>error</p-button>
   </div>
 </template>
+
 <script setup lang='ts'>
 import { PButton } from 'passion-ui'
+
 </script>
 <style scoped>
 .basic {
