@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import markdownItContainer from 'markdown-it-container'
 import { MarkDownTransform } from './plugins/markdownTransform'
 import prism from 'prismjs'
-console.log(prism)
+
 
 let config =  defineConfig({
   lang: 'zh-CN',
@@ -73,12 +73,11 @@ let config =  defineConfig({
     config: (md) => {
       md.use(markdownItContainer, 'demo', {
         validate: (params) => {
-          console.log(params,'--',!!params.trim().match(/^demo\s*(.*)$/))
           return !!params.trim().match(/^demo\s*(.*)$/);
         },
         render(tokens, idx) {
           let propsAry = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-          console.log('xxx')
+        
           if (tokens[idx].nesting === 1) {
             let title =propsAry && propsAry[1];
             let componentAddress = tokens[idx + 2]?.content||'';
