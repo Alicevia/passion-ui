@@ -1,6 +1,7 @@
 <template>
   <div>
-    <p-button>星期四 fucking crazy kfc</p-button>
+    <p-config-provider>
+    </p-config-provider>
   </div>
 </template>
 
