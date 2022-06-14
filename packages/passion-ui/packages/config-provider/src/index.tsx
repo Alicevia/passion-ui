@@ -1,8 +1,9 @@
 import { defineComponent } from 'vue'
+import '../../_store/colorScheme'
 
 export default defineComponent({
   name: 'ConfigProvider',
-  setup () {
-    return () => <div>123</div>
+  setup (props, { slots }) {
+    return () => <div>{slots.default?.()}</div>
   }
 })
