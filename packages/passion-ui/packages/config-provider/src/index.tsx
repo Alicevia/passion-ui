@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue'
-import '../../_store/colorScheme'
 
 export default defineComponent({
   name: 'ConfigProvider',

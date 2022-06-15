@@ -1,2 +1,1 @@
-export * from './colorScheme'
-export * from './theme/common'
+export * from './theme'

@@ -24,6 +24,7 @@
     "vue-tsc": "^0.35.2"
   },
   "dependencies": {
+    "@alicevia/utils": "workspace:^1.0.0",
     "@vueuse/core": "^8.6.0",
     "modern-css-reset": "^1.4.0"
   }
