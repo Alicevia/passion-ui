@@ -1,2 +1,2 @@
 
-export { default as PConfigProvider } from './src/index.tsx'
+export { default as PConfigProvider } from './src/index.vue'

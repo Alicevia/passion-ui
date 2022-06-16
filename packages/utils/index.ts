@@ -1,13 +1,7 @@
 export function lowerCamelCase (str, separator = '-') {
-  let newStr = ''
   const arr = str.split(separator) // 先用字符串分割成数组
-
-  arr.forEach((item, index) => {
-    if (index > 0) {
-      return newStr += item.replace(item[0], item[0].toUpperCase())
-    } else {
-      return newStr += item
-    }
-  })
-  return newStr
+  return arr.map((item, index) => {
+    if (index == 0) return item
+    return item.at(0).toUpperCase() + item.slice(1)
+  }).join('')
 }
