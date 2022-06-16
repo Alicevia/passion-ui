@@ -1,10 +1,10 @@
-import { inject, provide, reactive } from 'vue'
+import { inject, provide } from 'vue'
 import type { App } from 'vue'
-import { setupCssVar } from '../theme/index'
+import { setupCssVar, globalThemeVars } from '../theme/index'
 export const configProvideKey = Symbol('config-provide')
 // 生成全局状态 提供给所有组件
 export function createConfigProviderState (el:MaybeElementRef) {
-  const { themeVars } = setupCssVar(el)
+  const themeVars = setupCssVar(el)
   provide(configProvideKey, themeVars)
   return {
     install (app:App) {
@@ -14,5 +14,5 @@ export function createConfigProviderState (el:MaybeElementRef) {
 }
 // 使用这个状态
 export function useConfigProviderState () {
-  return inject(configProvideKey)
+  return inject(configProvideKey, globalThemeVars) || globalThemeVars
 }

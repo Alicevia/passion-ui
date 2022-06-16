@@ -6,6 +6,9 @@
 
 <script setup lang="ts">
 import { useSlots } from 'vue'
+import { useConfigProviderState } from '../../_store'
+const d = useConfigProviderState()
+console.log('d', d)
 </script>
 <script lang="ts">
 export default {

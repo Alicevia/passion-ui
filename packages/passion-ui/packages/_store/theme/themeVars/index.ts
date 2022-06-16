@@ -8,20 +8,28 @@ import { lowerCamelCase } from '@alicevia/utils'
 
 export function setupCssVar (target:MaybeElementRef = document.documentElement) {
   const { isDark } = useColorScheme()
-  const themeVars = reactive({})
-  console.log(target, 'x')
-
+  const cssVars = reactive({})
   for (const key in lightStyle) {
-    themeVars[lowerCamelCase(key.slice(2))] = useCssVar(key, target, { initialValue: lightStyle[key] })
+    cssVars[lowerCamelCase(key.slice(2))] = useCssVar(key, target, { initialValue: lightStyle[key] })
   }
   watch(isDark, (d) => {
     for (const key in lightStyle) {
-      themeVars[lowerCamelCase(key.slice(2))] = d ? darkStyle[key] : lightStyle[key]
+      cssVars[lowerCamelCase(key.slice(2))] = d ? darkStyle[key] : lightStyle[key]
     }
   }, { immediate: true })
-  return { themeVars }
+  return cssVars
 }
-const { themeVars } = setupCssVar()
-export function useThemeVars () {
-  return { themeVars }
+
+// 初始化全局变量
+const globalThemeVars = reactive({
+  common: {}
+})
+const commonThemeVars = setupCssVar()
+globalThemeVars.common = commonThemeVars
+export function useGlobalThemeVars () {
+  return { globalThemeVars }
 }
+export function useCommonThemeVars () {
+  return { commonThemeVars }
+}
+export { globalThemeVars, commonThemeVars }

@@ -8,9 +8,8 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { useColorScheme, useThemeVars } from '../packages'
+import { useColorScheme, commonThemeVars } from '../packages'
 const { toggle, isDark } = useColorScheme()
-const { themeVars } = useThemeVars()
 
 </script>
 <style>
@@ -20,5 +19,6 @@ body,html,#app {
 
 .main {
   height: 100%;
+  background-color: v-bind('commonThemeVars.baseColor');
 }
 </style>

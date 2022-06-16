@@ -1,15 +1,14 @@
 
 <template>
-  <div ref="el">
+  <div>
     <slot></slot>
   </div>
 </template>
 
 <script setup lang='ts'>
 import { useCurrentElement } from '@vueuse/core'
-import { ref } from 'vue'
 import { createConfigProviderState } from '../../_store'
-const el = ref(null)
+const el = useCurrentElement()
 createConfigProviderState(el)
 </script>
 <script  lang='ts'>
