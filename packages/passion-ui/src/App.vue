@@ -19,6 +19,6 @@ body,html,#app {
 
 .main {
   height: 100%;
-  background-color: v-bind('commonThemeVars.baseColor');
+  /* background-color: v-bind('commonThemeVars.baseColor'); */
 }
 </style>

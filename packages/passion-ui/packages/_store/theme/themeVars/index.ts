@@ -1,6 +1,6 @@
 import { useCssVar } from '@vueuse/core'
 import type { MaybeElementRef } from '@vueuse/core'
-import { reactive, ref, watch } from 'vue'
+import { nextTick, reactive, ref, watch } from 'vue'
 import lightStyle from './lightStyle.module.css'
 import darkStyle from './darkStyle.module.css'
 import { useColorScheme } from '../colorScheme'
@@ -13,9 +13,11 @@ export function setupCssVar (target:MaybeElementRef = document.documentElement) 
     cssVars[lowerCamelCase(key.slice(2))] = useCssVar(key, target, { initialValue: lightStyle[key] })
   }
   watch(isDark, (d) => {
-    for (const key in lightStyle) {
-      cssVars[lowerCamelCase(key.slice(2))] = d ? darkStyle[key] : lightStyle[key]
-    }
+    nextTick(() => {
+      for (const key in lightStyle) {
+        cssVars[lowerCamelCase(key.slice(2))] = d ? darkStyle[key] : lightStyle[key]
+      }
+    })
   }, { immediate: true })
   return cssVars
 }

@@ -1,14 +1,19 @@
 <template>
-  <button class="button">
+  <button class="p-button">
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
 import { useSlots } from 'vue'
-import { useConfigProviderState } from '../../_store'
-const d = useConfigProviderState()
-console.log('d', d)
+import { useConfigProviderState, configProvideKey } from '../../_store'
+import { computedInject } from '@vueuse/core'
+const commonThemeVars = useConfigProviderState()
+const a = computedInject(configProvideKey, (x) => {
+  console.log(x, 'x')
+  return { a: 1 }
+})
+console.log(a.value, '--')
 </script>
 <script lang="ts">
 export default {
@@ -16,7 +21,7 @@ export default {
 }
 </script>
 <style scoped>
-.button {
+.p-button {
   padding: 0 5px;
   background-color: white;
   color: black;
