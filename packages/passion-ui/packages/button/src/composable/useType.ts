@@ -1,19 +1,18 @@
+import { createElementStatusFn } from './../../../shared/classUtils'
 
-import { lowerFirstLetter } from '@alicevia/utils'
 import { computed, reactive, unref } from 'vue'
-const normalColor = (key) => lowerFirstLetter(key + 'Color')
-const hoverColor = (key) => lowerFirstLetter(key + 'ColorHover')
-const pressedColor = (key) => lowerFirstLetter(key + 'ColorPressed')
-const supplColor = (key) => lowerFirstLetter(key + 'ColorSuppl')
+
 export function useType (common) {
   const themeVars = reactive({})
   // 设置不同状态下的背景色
-  const keys = ['primary', 'info', 'success', 'warning', 'error']
-  keys.forEach(key => {
-    const normal_color = normalColor(key)
-    const hover_color = hoverColor(key)
-    const pressed_color = pressedColor(key)
-    const suppl_color = supplColor(key)
+  const types = ['primary', 'info', 'success', 'warning', 'error']
+
+  types.forEach(type => {
+    const elementStatus = createElementStatusFn(type)
+    const normal_color = elementStatus('Color')
+    const hover_color = elementStatus('ColorHover')
+    const pressed_color = elementStatus('ColorPressed')
+    const suppl_color = elementStatus('ColorSuppl')
     themeVars[normal_color] = computed(() => common[normal_color])
     themeVars[hover_color] = computed(() => common[hover_color])
     themeVars[pressed_color] = computed(() => common[pressed_color])
@@ -23,18 +22,19 @@ export function useType (common) {
 }
 
 export function useTypeStyle (type, buttonThemeVars) {
+  const elementStatus = createElementStatusFn(unref(type))
   const typeColor = reactive({
     normal: computed(() => {
-      return buttonThemeVars[lowerFirstLetter(unref(type) + 'Color')]
+      return buttonThemeVars[elementStatus('Color')]
     }),
     hover: computed(() => {
-      return buttonThemeVars[lowerFirstLetter(unref(type) + 'Color')]
+      return buttonThemeVars[elementStatus('ColorHover')]
     }),
     pressed: computed(() => {
-      return buttonThemeVars[lowerFirstLetter(unref(type) + 'Color')]
+      return buttonThemeVars[elementStatus('ColorPressed')]
     }),
     suppl: computed(() => {
-      return buttonThemeVars[lowerFirstLetter(unref(type) + 'Color')]
+      return buttonThemeVars[elementStatus('ColorSuppl')]
     })
   })
   return { typeColor }

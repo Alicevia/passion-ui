@@ -1,1 +1,1 @@
-export const PREFIX = 'p'
+export const NAMESPACE = 'p'

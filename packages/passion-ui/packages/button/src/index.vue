@@ -29,7 +29,7 @@ export default {
   name: 'Button'
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
 .p-button {
   margin: 0;
   background-color: white;
@@ -43,6 +43,9 @@ export default {
   color: white;
   &:hover {
     background-color: v-bind('typeColor.hover');
+  }
+  &:focus{
+    background-color: v-bind('typeColor.pressed');
   }
 
 }
