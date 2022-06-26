@@ -5,3 +5,6 @@ export function lowerCamelCase (str, separator = '-') {
     return item.at(0).toUpperCase() + item.slice(1)
   }).join('')
 }
+export function lowerFirstLetter (str) {
+  return str.at(0).toLowerCase() + str.slice(1)
+}

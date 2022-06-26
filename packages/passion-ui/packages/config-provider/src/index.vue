@@ -1,6 +1,6 @@
 
 <template>
-  <div ref="el">
+  <div>
     <slot></slot>
   </div>
 </template>
@@ -10,8 +10,7 @@ import { useCurrentElement, useCssVar } from '@vueuse/core'
 import { createConfigProviderState } from '../../_store'
 import { computed, onMounted, ref, unref } from 'vue'
 const el = useCurrentElement()
-createConfigProviderState(el)
-
+createConfigProviderState()
 </script>
 <script  lang='ts'>
 export default {

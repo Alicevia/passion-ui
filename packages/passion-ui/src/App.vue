@@ -3,14 +3,24 @@
     <p-button @click="toggle">
       {{ isDark() ? 'Dark' : 'Light' }}
     </p-button>
+    <p-button type="primary">
+      primary
+    </p-button>
+    <p-button type="error">
+      error
+    </p-button>
+    <p-button type="warning">
+      warning
+    </p-button>
+    <p-button type="info">
+      info
+    </p-button>
   </p-config-provider>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
 import { useColorScheme, commonThemeVars } from '../packages'
 const { toggle, isDark } = useColorScheme()
-
 </script>
 <style>
 body,html,#app {
@@ -19,6 +29,6 @@ body,html,#app {
 
 .main {
   height: 100%;
-  /* background-color: v-bind('commonThemeVars.baseColor'); */
+  background-color: v-bind('commonThemeVars.baseColor');
 }
 </style>

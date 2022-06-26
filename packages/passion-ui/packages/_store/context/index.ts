@@ -1,19 +1,19 @@
 import { inject, provide } from 'vue'
 import type { App } from 'vue'
-import { setupCssVar, globalThemeVars } from '../theme/index'
-import type { MaybeElementRef } from '@vueuse/core'
+import { useWholeTheme, wholeThemeVars } from '../theme/index'
 export const configProvideKey = Symbol('config-provide')
 // 生成全局状态 提供给所有组件
-export function createConfigProviderState (el:MaybeElementRef) {
-  const themeVars = setupCssVar(el)
-  provide(configProvideKey, themeVars)
+export function createConfigProviderState () {
+  // 生成一份新的全局状态
+  const vars = useWholeTheme()
+  provide(configProvideKey, useWholeTheme())
   return {
     install (app:App) {
-      app.provide(configProvideKey, themeVars)
+      app.provide(configProvideKey, vars)
     }
   }
 }
 // 使用这个状态
 export function useConfigProviderState () {
-  return inject(configProvideKey, globalThemeVars) || globalThemeVars
+  return inject(configProvideKey, wholeThemeVars) || wholeThemeVars
 }

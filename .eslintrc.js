@@ -1,3 +1,6 @@
 module.exports = {
-  extends: '@alicevia'
+  extends: '@alicevia',
+  rules:{
+    camelcase: 'off'
+  }
 }
