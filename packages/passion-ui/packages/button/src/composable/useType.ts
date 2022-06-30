@@ -23,37 +23,18 @@ export function useType (common) {
 
 export function useTypeStyle (type, common) {
   const typeColor = reactive({})
-  const isDefaultType = unref(type)=='default'
-  let typeValue = isDefaultType?'': unref(type)
-  const commonKeyFn = createCommonKeyFn(typeValue)
+  const commonKeyFn = createCommonKeyFn(unref(type))
   const map = {
     normal: 'Color',
     hover: 'ColorHover',
     pressed: 'ColorPressed',
     suppl: 'ColorSuppl',
     focus: 'ColorHover',
-    textColor: isDefaultType?'textColor2':'Color',
-
+    
   }
   Object.entries(map).forEach(([key, value]) => {
-    if(unref(type)=='default'){
-      if(key=='normal'){
-        typeColor[key] = unref(common[value])
-      }
-      typeColor[key] = computed(() => common[])
-
-    }else{
-      typeColor[key] = computed(() => common[commonKeyFn(value)])
-
-    }
+    typeColor[key] = computed(() => common[commonKeyFn(value)])
   })
-  // 处理字体颜色
-  typeColor.textColor = computed(()=>{
-    if(unref(type)=='default'){
-      return common['textColor2']
-    }else{
-      return common['baseColor']
-    }
-  })
+
   return typeColor
 }
