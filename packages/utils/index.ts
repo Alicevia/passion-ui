@@ -8,3 +8,6 @@ export function lowerCamelCase (str, separator = '-') {
 export function lowerFirstLetter (str) {
   return str.at(0).toLowerCase() + str.slice(1)
 }
+export function upperFirstLetter (str) {
+  return str.at(0).toUpperCase() + str.slice(1)
+}

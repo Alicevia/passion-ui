@@ -11,18 +11,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useButtonThemeVars, useTypeStyle } from './composable'
+
+import { useButtonThemeVars } from './composable'
 import { createClassPrefix } from '../../shared'
 interface IProps {
-  type?: 'primary' | 'success' | 'danger' | 'warning' | 'info'
+  type?:'default'| 'primary' | 'success' | 'danger' | 'warning' | 'info'
 }
-const { type = '' } = defineProps<IProps>()
+const { type = 'default' } = defineProps<IProps>()
 const prefix = createClassPrefix('button')
-const v = useButtonThemeVars()// 获取button下的颜色体系
-
+const { typeColor } = useButtonThemeVars({ type })// 获取button下的颜色体系
+console.log(typeColor)
 // 处理type不同的背景色
-const { typeColor } = useTypeStyle(type, v)
 </script>
 <script lang="ts">
 export default {
@@ -33,19 +32,25 @@ export default {
 .p-button {
   margin: 0;
   background-color: white;
-  color: black;
+  color:#333;
   border-radius: 4px;
   cursor: pointer;
-
+  border: none;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .p-button--type {
   background-color: v-bind('typeColor.normal');
-  color: white;
+  color: v-bind('typeColor.textColor');
+  border-width: 1px;
+  border-style: solid;
+  border-color: v-bind('typeColor.normal');
   &:hover {
     background-color: v-bind('typeColor.hover');
+    border-color: v-bind('typeColor.hover');
   }
   &:focus{
-    background-color: v-bind('typeColor.pressed');
+    background-color: v-bind('typeColor.focus');
+    border-color: v-bind('typeColor.focus');
   }
 
 }
