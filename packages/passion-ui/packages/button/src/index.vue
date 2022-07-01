@@ -40,17 +40,26 @@ export default {
 }
 .p-button--type {
   background-color: v-bind('typeColor.normal');
-  color: v-bind('typeColor.textColor');
+  color: v-bind('typeColor.textNormal');
   border-width: 1px;
   border-style: solid;
   border-color: v-bind('typeColor.normal');
   &:hover {
     background-color: v-bind('typeColor.hover');
     border-color: v-bind('typeColor.hover');
+  color: v-bind('typeColor.textHover');
+
   }
   &:focus{
     background-color: v-bind('typeColor.focus');
     border-color: v-bind('typeColor.focus');
+    color: v-bind('typeColor.textFocus');
+
+  }
+  &:active{
+    background-color: v-bind('typeColor.pressed');
+    border-color: v-bind('typeColor.pressed');
+    color: v-bind('typeColor.textPreseed');
   }
 
 }

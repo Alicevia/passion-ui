@@ -8,17 +8,26 @@ export function useButtonThemeVars ({ type }) {
   const common = useConfigProviderState().common
   // button的颜色
   const buttonCommon = reactive({
-    defaultColor:toRef(common,'primaryColor'),
-    defaultColorHover:toRef(common,'primaryColorHover'),
-    defaultColorPressed:toRef(common,'primaryColorPressed'),
-    defaultColorSuppl:toRef(common,'primaryColorSuppl'),
-    defaultColorFocus:toRef(common,'primaryColorHover'),
+    defaultColor:TRANSPARENT,
+    defaultColorHover:TRANSPARENT,
+    defaultColorPressed:TRANSPARENT,
+    defaultColorSuppl:TRANSPARENT,
+    defaultColorFocus:TRANSPARENT,
+
+    defaultTextColor:toRef(common,'textColor2'),
+    defaultTextColorHover:toRef(common,'primaryColorHover'),
+    defaultTextColorPressed: toRef(common,'primaryColorPressed'),
+    defaultTextColorSuppl:toRef(common,'primaryColorSuppl'),
+    defaultTextColorFocus:toRef(common,'primaryColorPressed'),
+    
+
+    
   })
   // 生成类型颜色
-  const typeColor = useTypeStyle(type, reactive({
+  const typeColor = useTypeStyle(reactive({
     ...toRefs(common),
     ...toRefs(buttonCommon)
-  }))
+  }),{type})
   // button颜色集中
   const buttonThemeVars = reactive({
     ...toRefs(buttonCommon),

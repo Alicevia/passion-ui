@@ -3,7 +3,7 @@
     <p-button @click="toggle">
       {{ isDark() ? 'Dark' : 'Light' }}
     </p-button>
-    <p-button type="primary">
+    <!-- <p-button type="primary">
       primary
     </p-button>
     <p-button type="error">
@@ -14,7 +14,7 @@
     </p-button>
     <p-button type="info">
       info
-    </p-button>
+    </p-button> -->
   </p-config-provider>
 </template>
 

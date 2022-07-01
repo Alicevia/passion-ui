@@ -20,9 +20,12 @@ export function useType (common) {
   })
   return themeVars
 }
-
-export function useTypeStyle (type, common) {
-  const typeColor = reactive({})
+// 计算出背景色 字体色 与各种状态下的颜色
+export function useTypeStyle (common,{type,} ) {
+  
+  const typeColor = reactive({
+    
+  })
   const commonKeyFn = createCommonKeyFn(unref(type))
   const map = {
     normal: 'Color',
@@ -31,6 +34,10 @@ export function useTypeStyle (type, common) {
     suppl: 'ColorSuppl',
     focus: 'ColorHover',
     
+    textNormal:'TextColor',
+    textHover:'TextColorHover',
+    textPressed:'TextColorPressed',
+    textSuppl:'TextColorSuppl',
   }
   Object.entries(map).forEach(([key, value]) => {
     typeColor[key] = computed(() => common[commonKeyFn(value)])
