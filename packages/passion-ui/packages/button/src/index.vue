@@ -19,8 +19,7 @@ interface IProps {
 }
 const { type = 'default' } = defineProps<IProps>()
 const prefix = createClassPrefix('button')
-const { typeColor } = useButtonThemeVars({ type })// 获取button下的颜色体系
-console.log(typeColor)
+const { normal,hover,pressed,focus } = useButtonThemeVars({ type })// 获取button下的颜色体系
 // 处理type不同的背景色
 </script>
 <script lang="ts">
@@ -31,7 +30,6 @@ export default {
 <style scoped lang="scss">
 .p-button {
   margin: 0;
-  background-color: white;
   color:#333;
   border-radius: 4px;
   cursor: pointer;
@@ -39,27 +37,27 @@ export default {
   transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .p-button--type {
-  background-color: v-bind('typeColor.normal');
-  color: v-bind('typeColor.textNormal');
+  color: v-bind('normal.textColor');
+  background-color: v-bind('normal.color');
+  border-color: v-bind('normal.textColor');
   border-width: 1px;
   border-style: solid;
-  border-color: v-bind('typeColor.normal');
   &:hover {
-    background-color: v-bind('typeColor.hover');
-    border-color: v-bind('typeColor.hover');
-  color: v-bind('typeColor.textHover');
+    background-color: v-bind('hover.color');
+    border-color: v-bind('hover.color');
+    color: v-bind('hover.textColor');
 
   }
   &:focus{
-    background-color: v-bind('typeColor.focus');
-    border-color: v-bind('typeColor.focus');
-    color: v-bind('typeColor.textFocus');
+   background-color: v-bind('focus.color');
+    border-color: v-bind('focus.color');
+    color: v-bind('focus.textColor');
 
   }
   &:active{
-    background-color: v-bind('typeColor.pressed');
-    border-color: v-bind('typeColor.pressed');
-    color: v-bind('typeColor.textPreseed');
+    background-color: v-bind('pressed.color');
+    border-color: v-bind('pressed.color');
+    color: v-bind('pressed.textColor');
   }
 
 }
