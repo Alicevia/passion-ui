@@ -25,25 +25,28 @@ export function useType (common) {
 
 
 // 计算出背景色 字体色 与各种状态下的颜色
-export function useTypeStyle (common,{type,} ) {
-  type = ref(unref(type))
+export function useTypeStyle (common,{type} ) {
+  let _type =unref(type)
   const types =['default', 'primary', 'info', 'success', 'warning', 'error']
-  if(!types.includes(type.value)){
-    type='default'
+  if(!types.includes(_type)){
+    _type='default'
   }
   const actions = ['', 'hover', 'pressed',  'focus','suppl',]
-  let _type=unref(type)
   
   let a = actions.reduce((pre,action)=>{
+    let _action = upperFirstLetter(action)
     pre[lowerFirstLetter(action+'Color')]=computed(()=>{
-      return common[_type+'Color']
+      return common[type.value+'Color'+ _action]
     })
     pre[lowerFirstLetter(action+'TextColor')]=computed(()=>{
-      return common[_type+'TextColor'+upperFirstLetter(action)]
+      return common[type.value+'TextColor'+_action]
+    })
+    pre[lowerFirstLetter(action+'Border')]=computed(()=>{
+      return common[type.value+'Border'+_action]
     })
     return pre
   },  reactive({}))
-  console.log(a)
+  console.log(a,'x')
   return a
 
 }

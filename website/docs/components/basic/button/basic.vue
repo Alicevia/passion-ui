@@ -1,14 +1,27 @@
 <template>
-  <div class="basic">
-    <p-button>primary</p-button>
-    <p-button>info</p-button>
-    <p-button>success</p-button>
-    <p-button>warning</p-button>
-    <p-button>error</p-button>
-  </div>
+<p-config-provider>
+    <div class="basic">
+    <p-button @click="toggle">
+      {{ isDark() ? 'Dark' : 'Light' }}
+    </p-button>
+   <p-button type="primary">
+      primary
+    </p-button>
+     <p-button type="error">
+      error
+    </p-button>
+    <p-button type="warning">
+      warning
+    </p-button>
+    <p-button type="info">
+      info
+    </p-button>
+    </div>
+  </p-config-provider>
 </template>
 <script setup lang='ts'>
-import { PButton } from 'passion-ui'
+import { PButton,PConfigProvider , useColorScheme, commonThemeVars} from 'passion-ui'
+const { toggle, isDark } = useColorScheme()
 </script>
 <style scoped>
 .basic {

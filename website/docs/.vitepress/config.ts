@@ -101,7 +101,7 @@ let config =  defineConfig({
     plugins:[MarkDownTransform()],
     resolve:{
       alias:{
-        'passion-ui': resolve('../packages/passion-ui/packages/components'),
+        'passion-ui': resolve('../packages/passion-ui/packages/index'),
         '@': resolve('./docs'),
       }
     },

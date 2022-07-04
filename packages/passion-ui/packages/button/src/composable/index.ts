@@ -1,5 +1,5 @@
 import { upperFirstLetter } from '@alicevia/utils'
-import { toRefs } from '@vueuse/core'
+import { refDefault, toRefs } from '@vueuse/core'
 import { reactive, toRef } from 'vue'
 import { TRANSPARENT } from '../../../shared/color'
 import { useColorScheme, useConfigProviderState } from '../../../_store'
@@ -22,10 +22,18 @@ export function useButtonThemeVars ({ type }) {
     defaultTextColorPressed: toRef(common,'primaryColorPressed'),
     defaultTextColorSuppl:toRef(common,'primaryColorSuppl'),
     defaultTextColorFocus:toRef(common,'primaryColorPressed'),
-    ...actions.reduce((pre,item)=>{
-      ['primary', 'info', 'success', 'warning', 'error'].forEach(type => {
-        pre[type+'Color'+upperFirstLetter(item)] = toRef(common,type+'Color')
-        pre[type+'TextColor'+upperFirstLetter(item)] = toRef(common,'baseColor')
+    defaultBorder:`1px solid ${toRef(common,'primaryColor').value}`,
+    defaultBorderHover:`1px solid ${toRef(common,'primaryColor').value}`,
+    defaultBorderPressed: `1px solid ${toRef(common,'primaryColorPressed').value}`,
+    defaultBorderSuppl:`1px solid ${toRef(common,'primaryColorSuppl').value}`,
+    defaultBorderFocus:`1px solid ${toRef(common,'primaryColorPressed').value}`,
+    
+    ...actions.reduce((pre,action)=>{
+      let _action = upperFirstLetter(action);
+      ['primary', 'success', 'info', 'warning', 'error'].forEach(type => {
+        pre[type+'Color'+ _action] = toRef(common,type+'Color'+_action)
+        pre[type+'TextColor'+ _action] = toRef(common,'baseColor')
+        pre[type+'Border'+ _action] ='none'
       })
       return pre
     },{})
@@ -44,5 +52,6 @@ export function useButtonThemeVars ({ type }) {
     ...toRefs(buttonCommon),
     ...toRefs(typeColor)
   })
+  console.log(buttonCommon)
   return { buttonThemeVars, ...toRefs(typeColor) }
 }

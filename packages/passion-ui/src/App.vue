@@ -1,12 +1,13 @@
 <template>
   <p-config-provider class="main">
+    <div class="container">
     <p-button @click="toggle">
       {{ isDark() ? 'Dark' : 'Light' }}
     </p-button>
    <p-button type="primary">
       primary
     </p-button>
-    <!--  <p-button type="error">
+     <p-button type="error">
       error
     </p-button>
     <p-button type="warning">
@@ -14,7 +15,9 @@
     </p-button>
     <p-button type="info">
       info
-    </p-button> -->
+    </p-button>
+    </div>
+
   </p-config-provider>
 </template>
 
