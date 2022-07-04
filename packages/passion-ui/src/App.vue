@@ -3,10 +3,10 @@
     <p-button @click="toggle">
       {{ isDark() ? 'Dark' : 'Light' }}
     </p-button>
-    <!-- <p-button type="primary">
+   <p-button type="primary">
       primary
     </p-button>
-    <p-button type="error">
+    <!--  <p-button type="error">
       error
     </p-button>
     <p-button type="warning">

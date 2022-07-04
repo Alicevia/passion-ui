@@ -7,7 +7,7 @@ import { useTypeStyle } from './useType'
 export function useButtonThemeVars ({ type }) {
   // 全局通用色
   const common = useConfigProviderState().common
-  const actions = ['normal', 'hover', 'pressed',  'focus','suppl',]
+  const actions = ['', 'hover', 'pressed',  'focus','suppl',]
   
   // button的颜色
   const buttonCommon = reactive({
@@ -24,9 +24,6 @@ export function useButtonThemeVars ({ type }) {
     defaultTextColorFocus:toRef(common,'primaryColorPressed'),
     ...actions.reduce((pre,item)=>{
       ['primary', 'info', 'success', 'warning', 'error'].forEach(type => {
-        if(item=='normal'){
-          item=''
-        }
         pre[type+'Color'+upperFirstLetter(item)] = toRef(common,type+'Color')
         pre[type+'TextColor'+upperFirstLetter(item)] = toRef(common,'baseColor')
       })
@@ -47,5 +44,5 @@ export function useButtonThemeVars ({ type }) {
     ...toRefs(buttonCommon),
     ...toRefs(typeColor)
   })
-  return { buttonThemeVars, ...typeColor }
+  return { buttonThemeVars, ...toRefs(typeColor) }
 }

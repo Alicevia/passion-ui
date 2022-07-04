@@ -1,8 +1,7 @@
 import { createCommonKeyFn } from './../../../shared/classUtils'
 
 import { computed, reactive, unref,ref } from 'vue'
-import { reactiveComputed } from '@vueuse/core'
-import { upperFirstLetter } from '@alicevia/utils'
+import { lowerFirstLetter, upperFirstLetter, } from '@alicevia/utils'
 
 export function useType (common) {
   const themeVars = reactive({})
@@ -32,32 +31,19 @@ export function useTypeStyle (common,{type,} ) {
   if(!types.includes(type.value)){
     type='default'
   }
-  const actions = ['normal', 'hover', 'pressed',  'focus','suppl',]
+  const actions = ['', 'hover', 'pressed',  'focus','suppl',]
   let _type=unref(type)
- 
-  return actions.reduce((pre,item)=>{
-    pre[item]=reactiveComputed(()=>{
-      if(item==='normal'){
-        item=''
-      }
-      return {
-        color:common[_type+'Color'+upperFirstLetter(item)],
-        textColor:common[_type+'TextColor'+upperFirstLetter(item)],
-      }
-      // let color ,textColor
-      // if(_type==='default'){
-      // textColor = 'textColor2'
-      // }else{
-      //   color=_type+'Color'
-      //   textColor='baseColor'
-      // }
-      // console.log(_type)
-      //   return {
-      //     color:common[color],
-      //     textColor:common[textColor],
-      //   }
+  
+  let a = actions.reduce((pre,action)=>{
+    pre[lowerFirstLetter(action+'Color')]=computed(()=>{
+      return common[_type+'Color']
+    })
+    pre[lowerFirstLetter(action+'TextColor')]=computed(()=>{
+      return common[_type+'TextColor'+upperFirstLetter(action)]
     })
     return pre
-  },  {})
+  },  reactive({}))
+  console.log(a)
+  return a
 
 }
