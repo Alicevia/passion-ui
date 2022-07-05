@@ -4,9 +4,6 @@
       <component :is="demos[componentAddress]"></component>
     </div>
     <div>
-      <div>
-        <slot></slot>
-      </div>
       <details>
         <summary>show me the code</summary>
         <pre class="code" ><code  v-html="source"></code></pre>

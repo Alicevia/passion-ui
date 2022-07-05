@@ -14,21 +14,20 @@
 
 import { useButtonThemeVars } from './composable'
 import { createClassPrefix } from '../../shared'
-import { toRef, ref } from 'vue';
-import { refDefault } from '@vueuse/core';
+import { toRef } from 'vue'
+import { refDefault } from '@vueuse/core'
 interface IProps {
-  type?:'default'| 'primary' | 'success' | 'danger' | 'warning' | 'info'
+  type?:'default'| 'primary' | 'success' | 'error' | 'warning' | 'info'
 }
-const props= defineProps<IProps>()
-const type = refDefault(toRef(props,'type'),'default')
+const props = defineProps<IProps>()
+const type = refDefault(toRef(props, 'type'), 'default')
 const prefix = createClassPrefix('button')
 const {
-color,hoverColor,pressedColor,focusColor,
-textColor,hoverTextColor,pressedTextColor,focusTextColor,
-border,hoverBorder,pressedBorder,focusBorder,
+  color, hoverColor, pressedColor, focusColor,
+  textColor, hoverTextColor, pressedTextColor, focusTextColor,
+  border, hoverBorder, pressedBorder, focusBorder
 } = useButtonThemeVars({ type })// 获取button下的颜色体系
 // 处理type不同的背景色
-
 </script>
 <script lang="ts">
 export default {

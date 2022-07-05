@@ -14,10 +14,11 @@
   "license": "ISC",
   "devDependencies": {
     "markdown-it-container": "^3.0.0",
-    "vitepress": "1.0.0-alpha.1",
+    "vitepress": "1.0.0-alpha.4",
     "vitepress-theme-demoblock": "^1.4.2"
   },
   "dependencies": {
+    "passion-ui": "workspace:1.0.0-beta.0",
     "prismjs": "^1.28.0"
   }
 }

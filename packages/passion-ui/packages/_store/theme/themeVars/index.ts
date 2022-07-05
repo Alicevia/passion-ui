@@ -1,14 +1,14 @@
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 import lightStyle from './lightStyle.module.css'
 import darkStyle from './darkStyle.module.css'
-import { useColorScheme } from '../colorScheme'
+import { useColorModeControl } from '../colorMode'
 import { lowerCamelCase } from '@alicevia/utils'
 // SOZfplwUGkl
 export function useWholeTheme () {
-  const { isDark } = useColorScheme()
+  const { isDark } = useColorModeControl()
   const common = reactive({})
   for (const key in darkStyle) {
-    common[lowerCamelCase(key.slice(2))] = computed(() => isDark() ? darkStyle[key] : lightStyle[key])
+    common[lowerCamelCase(key.slice(2))] = computed(() => isDark.value ? darkStyle[key] : lightStyle[key])
   }
   const commonStyle = reactive({
     common

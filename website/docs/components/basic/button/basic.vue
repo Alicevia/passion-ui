@@ -1,13 +1,12 @@
 <template>
-<p-config-provider>
-    <div class="basic">
+  <div class="basic">
     <p-button @click="toggle">
-      {{ isDark() ? 'Dark' : 'Light' }}
+      {{ isDark ? 'Dark' : 'Light' }}
     </p-button>
-   <p-button type="primary">
+    <p-button type="primary">
       primary
     </p-button>
-     <p-button type="error">
+    <p-button type="error">
       error
     </p-button>
     <p-button type="warning">
@@ -16,12 +15,12 @@
     <p-button type="info">
       info
     </p-button>
-    </div>
-  </p-config-provider>
+  </div>
 </template>
 <script setup lang='ts'>
-import { PButton,PConfigProvider , useColorScheme, commonThemeVars} from 'passion-ui'
-const { toggle, isDark } = useColorScheme()
+import { PButton, useColorModeControl } from 'passion-ui'
+const { toggle, isDark } = useColorModeControl()
+
 </script>
 <style scoped>
 .basic {

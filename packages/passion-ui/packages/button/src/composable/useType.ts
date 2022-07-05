@@ -1,7 +1,7 @@
 import { createCommonKeyFn } from './../../../shared/classUtils'
 
-import { computed, reactive, unref,ref } from 'vue'
-import { lowerFirstLetter, upperFirstLetter, } from '@alicevia/utils'
+import { computed, reactive, unref, ref } from 'vue'
+import { lowerFirstLetter, upperFirstLetter } from '@alicevia/utils'
 
 export function useType (common) {
   const themeVars = reactive({})
@@ -22,31 +22,27 @@ export function useType (common) {
   return themeVars
 }
 
-
-
 // 计算出背景色 字体色 与各种状态下的颜色
-export function useTypeStyle (common,{type} ) {
-  let _type =unref(type)
-  const types =['default', 'primary', 'info', 'success', 'warning', 'error']
-  if(!types.includes(_type)){
-    _type='default'
+export function useTypeStyle (common, { type }) {
+  let _type = unref(type)
+  const types = ['default', 'primary', 'info', 'success', 'warning', 'error']
+  if (!types.includes(_type)) {
+    _type = 'default'
   }
-  const actions = ['', 'hover', 'pressed',  'focus','suppl',]
-  
-  let a = actions.reduce((pre,action)=>{
-    let _action = upperFirstLetter(action)
-    pre[lowerFirstLetter(action+'Color')]=computed(()=>{
-      return common[type.value+'Color'+ _action]
+  const actions = ['', 'hover', 'pressed', 'focus', 'suppl']
+
+  const a = actions.reduce((pre, action) => {
+    const _action = upperFirstLetter(action)
+    pre[lowerFirstLetter(action + 'Color')] = computed(() => {
+      return common[type.value + 'Color' + _action]
     })
-    pre[lowerFirstLetter(action+'TextColor')]=computed(()=>{
-      return common[type.value+'TextColor'+_action]
+    pre[lowerFirstLetter(action + 'TextColor')] = computed(() => {
+      return common[type.value + 'TextColor' + _action]
     })
-    pre[lowerFirstLetter(action+'Border')]=computed(()=>{
-      return common[type.value+'Border'+_action]
+    pre[lowerFirstLetter(action + 'Border')] = computed(() => {
+      return common[type.value + 'Border' + _action]
     })
     return pre
-  },  reactive({}))
-  console.log(a,'x')
+  }, reactive({}))
   return a
-
 }

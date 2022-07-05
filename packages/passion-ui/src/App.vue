@@ -1,29 +1,12 @@
 <template>
   <p-config-provider class="main">
-    <div class="container">
-    <p-button @click="toggle">
-      {{ isDark() ? 'Dark' : 'Light' }}
-    </p-button>
-   <p-button type="primary">
-      primary
-    </p-button>
-     <p-button type="error">
-      error
-    </p-button>
-    <p-button type="warning">
-      warning
-    </p-button>
-    <p-button type="info">
-      info
-    </p-button>
-    </div>
-
+    <BasicButton></BasicButton>
   </p-config-provider>
 </template>
 
 <script setup lang="ts">
-import { useColorScheme, commonThemeVars } from '../packages'
-const { toggle, isDark } = useColorScheme()
+import { PConfigProvider, commonThemeVars } from 'passion-ui'
+import BasicButton from 'website/basic/button/basic.vue'
 </script>
 <style>
 body,html,#app {

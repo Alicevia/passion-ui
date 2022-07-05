@@ -9,7 +9,9 @@ export default defineConfig({
   plugins: [vue({ reactivityTransform: true }), vueJsx()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      'passion-ui': fileURLToPath(new URL('../passion-ui/packages', import.meta.url)),
+      website: fileURLToPath(new URL('../../website/docs/components', import.meta.url))
     }
   },
   server: {
