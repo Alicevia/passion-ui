@@ -20,7 +20,7 @@ jobs:
           node-version: '16.x'
       - name: use cache
         id: cache-dependencies
-        use: actions/cache@v3
+        uses: actions/cache@v3
         with:
           path: |
             **/node_modules
