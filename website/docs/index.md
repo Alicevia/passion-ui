@@ -1,8 +1,8 @@
 ---
 layout: home
 
-title: VitePress
-titleTemplate: Vite & Vue Powered Static Site Generator
+title: PassionUI
+titleTemplate: vue components
 
 hero:
   name: PassionUI

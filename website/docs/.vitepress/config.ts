@@ -8,7 +8,7 @@ import prism from 'prismjs'
 
 let config =  defineConfig({
   lang: 'zh-CN',
-  base:'/',
+  base:'/vue3-components',
   title: 'Passion UI',
   description: 'Passion UI是一个基于vue3开发的UI组件库,只尝试实现一些组件的功能,不推荐直接大范围应用在实际项目',
   themeConfig: {
