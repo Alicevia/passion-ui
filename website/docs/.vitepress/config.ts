@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig, } from 'vitepress'
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import markdownItContainer from 'markdown-it-container'
@@ -104,10 +104,9 @@ let config =  defineConfig({
       }
     },
     server:{
-    watch:{
-      alwaysStat:true,
-      persistent:true,
-    }
+      fs:{
+        allow:['../../../']
+      }
     }
   }
 })

@@ -39,7 +39,6 @@ const source = computed(() => decodeURIComponent(props.code))
 
 .code {
   position: relative;
-  background-color: var(--vp-c-gray-light-5);
 }
 
 </style>
