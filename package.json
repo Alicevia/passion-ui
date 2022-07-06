@@ -4,7 +4,8 @@
   "private": "true",
   "scripts": {
     "dev": "pnpm --filter passion-ui dev",
-    "site": "pnpm --filter website run docs:dev  --port 3003"
+    "site": "pnpm --filter website run docs:dev  --port 3003",
+    "site:build":"pnpm --filter website run docs:build"
   },
   "workspaces": [
     "packages/*",

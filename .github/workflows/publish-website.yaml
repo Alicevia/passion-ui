@@ -1,0 +1,35 @@
+name: auto publish website
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - LICENSE
+
+jobs:
+  publish-website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps: 
+      - name: checkout repository
+        uses: actions/checkout@v3
+      - name: setup node
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '16.x'
+      - name: use cache
+        id: cache-dependencies
+        use: actions/cache@v3
+        with:
+          path: |
+            **/node_modules
+          key: ${{runner.OS}}-${{hashFiles('**/pnpm-lock')}}
+      - name: install pnpm  
+        run: npm install pnpm -g
+      - name: install dependencies
+        run: pnpm i
+      - name: build website
+        run: pnpm site:build
+
+

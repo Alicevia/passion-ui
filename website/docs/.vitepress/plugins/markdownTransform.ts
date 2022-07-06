@@ -6,6 +6,8 @@ export function MarkDownTransform() {
     enforce:'pre',
      transform(code,id){
       if (!id.endsWith('.md')) return
+      if (id.endsWith('docs/index.md')) return
+
       let allComponents = `<script setup>
       let tempPassion= import.meta.globEager('@/components/**/*.vue');
       let demos={}

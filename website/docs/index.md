@@ -1,24 +1,27 @@
-home
-<!-- ---
-home: true
-actionText: 开始
-actionLink: /guide/
+---
+layout: home
 
-altActionText: 了解更多
-altActionLink: /guide/why
+title: VitePress
+titleTemplate: Vite & Vue Powered Static Site Generator
 
+hero:
+  name: PassionUI
+  text:  vue3 components lib
+  tagline: Simple, powerful, and performant..
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /components/basic/button/
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/Alicevia/vue3-components
 features:
-  - title: 💡 极速的服务启动
-    details: 使用原生 ESM 文件，无需打包!
-  - title: ⚡️ 轻量快速的热重载
-    details: 无论应用程序大小如何，都始终极快的模块热重载（HMR）
-  - title: 🛠️ 丰富的功能
-    details: 对 TypeScript、JSX、CSS 等支持开箱即用。
-  - title: 📦 优化的构建
-    details: 可选 “多页应用” 或 “库” 模式的预配置 Rollup 构建
-  - title: 🔩 通用的插件
-    details: 在开发和构建之间共享 Rollup-superset 插件接口。
-  - title: 🔑 完全类型化的API
-    details: 灵活的 API 和完整的 TypeScript 类型。
-footer: MIT Licensed | Copyright © 2019-present Evan You & Vite Contributors
---- -->
+  - title: "Vite: The DX that can't be beat"
+    details: Feel the speed of Vite. Instant server start and lightning fast HMR that stays fast regardless of the app size.
+  - title: Designed to be simplicity first
+    details: With Markdown-centered content, it's built to help you focus on writing and deployed with minimum configuration.
+  - title: Power of Vue meets Markdown
+    details: Enhance your content with all the features of Vue in Markdown, while being able to customize your site with Vue.
+  - title: Fully static yet still dynamic
+    details: Go wild with true SSG + SPA architecture. Static on page load, but engage users with 100% interactivity from there.
+---

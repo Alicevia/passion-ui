@@ -77,7 +77,6 @@ let config =  defineConfig({
         },
         render(tokens, idx) {
           let propsAry = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-        
           if (tokens[idx].nesting === 1) {
             let title =propsAry && propsAry[1];
             let componentAddress = tokens[idx + 2]?.content||'';
