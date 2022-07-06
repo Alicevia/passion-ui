@@ -31,11 +31,12 @@ jobs:
         run: pnpm i
       - name: build website
         run: pnpm site:build
-      - name: publish 
-        uses: peaceiris/actions-gh-pages@v3
+      - name: publish
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: website/docs/.vuepress/dist
+          branch: gh-pages
+          folder: website/docs/.vuepress/dist 
+  
         
 
 
