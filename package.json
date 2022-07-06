@@ -2,6 +2,7 @@
   "name": "@alicevia/vue3-components-monorepo",
   "version": "0.0.0",
   "private": "true",
+  "homepage":"https://alicevia.github.io/vue3-components/",
   "scripts": {
     "dev": "pnpm --filter passion-ui dev",
     "site": "pnpm --filter website run docs:dev  --port 3003",
