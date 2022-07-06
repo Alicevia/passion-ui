@@ -3,14 +3,18 @@ import { computed } from 'vue'
 const colorMode = useColorMode({
   storageKey: 'passionUIColorMode'
 })
-useMutationObserver(document.documentElement, mutations => {
-  if (!mutations[0].oldValue.includes('dark')) {
-    console.log(mutations[0].oldValue)
-    colorMode.value = 'dark'
-  } else {
-    colorMode.value = 'light'
-  }
-}, { attributeFilter: ['class'], attributeOldValue: true })
+if (!import.meta.env.SSR) {
+  // ... 仅在客户端执行的逻辑
+  useMutationObserver(document.documentElement, mutations => {
+    if (!mutations[0].oldValue.includes('dark')) {
+      console.log(mutations[0].oldValue)
+      colorMode.value = 'dark'
+    } else {
+      colorMode.value = 'light'
+    }
+  }, { attributeFilter: ['class'], attributeOldValue: true })
+}
+
 // 主题控制
 function useColorModeControl () {
   const isDark = computed(() => colorMode.value === 'dark')

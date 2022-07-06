@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "pnpm --filter passion-ui dev",
     "site": "pnpm --filter website run docs:dev  --port 3003",
-    "site:build":"pnpm --filter website run docs:build"
+    "site:build":"pnpm --filter website run docs:build",
+    "site:serve":"pnpm --filter website run docs:serve"
   },
   "workspaces": [
     "packages/*",
