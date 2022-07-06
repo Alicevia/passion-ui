@@ -35,7 +35,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: gh-pages
-          folder: website/docs/.vuepress/dist 
+          folder: website/docs/.vitepress/dist 
   
         
 
