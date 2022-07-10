@@ -1,6 +1,7 @@
 import * as components from './components'
 import { create } from './create'
 import 'modern-css-reset'
+import './style/tailwindcss/index.css'
 
 export * from './components'
 export * from './_store'

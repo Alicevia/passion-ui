@@ -1,2 +1,2 @@
-export * from './classUtils'
-export * from './enum'
+export * from './classUtils.ts'
+export * from './enum.ts'
