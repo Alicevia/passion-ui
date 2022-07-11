@@ -1,8 +1,9 @@
 <template>
   <button
-    class="transition-all px-4 py-0 border h-8 box-border"
+    class="transition-all leading-none px-4 py-0 border box-border"
     :class="{
       [typeClass]:true,
+      [sizeClass]:true,
     }"
   >
     <slot>
@@ -12,10 +13,9 @@
 
 <script setup lang='ts'>
 import { watch, ref, toRefs, computed } from 'vue'
-import { createClassPrefix } from 'shared/classUtils'
-import { types } from './style'
+import { createClassPrefix } from '../../shared'
+import { types, sizes } from './style'
 const prefix = createClassPrefix('button')
-// const prefix = 'p-button'
 const props = defineProps({
   type: {
     type: String,
@@ -23,11 +23,20 @@ const props = defineProps({
     validator (value: string) {
       return types.includes(value)
     }
+  },
+  size: {
+    type: String,
+    default: 'medium',
+    validator (value: string) {
+      return sizes.includes(value)
+    }
   }
 })
-const { type } = toRefs(props)
-const typeClass = computed(() => prefix + '-' + type.value)
-console.log(typeClass.value)
+const { type, size } = toRefs(props)
+const createClass = (k) => () => prefix + '-' + k.value
+
+const typeClass = computed(createClass(type))
+const sizeClass = computed(createClass(size))
 
 </script>
 <style scoped>

@@ -3,11 +3,13 @@
 // const plugin = require('tailwindcss/plugin')
 // const { typeStyle } = require('./packages/button/src/style/index.ts')
 // console.log(typeStyle)
+
 module.exports = {
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
-    './packages/**/*.{vue,js,ts,jsx,tsx}'
+    './packages/**/*.{vue,js,ts,jsx,tsx}',
+    '../packages/passion-ui/packages/**/*.{vue,js,ts,jsx,tsx}'
   ],
   safelist: [
     {
@@ -23,9 +25,9 @@ module.exports = {
         },
         text: {
           DEFAULT: 'var(--text-color-base)',
-          1: 'var(--text-color-1)',
-          2: 'var(--text-color-2)',
-          3: 'var(--text-color-3)',
+          tc1: 'var(--text-color-1)',
+          tc2: 'var(--text-color-2)',
+          tc3: 'var(--text-color-3)',
           disabled: 'var(--text-color-disabled)'
         },
         border: {
@@ -61,6 +63,22 @@ module.exports = {
           active: 'var(--error-color-pressed)',
           focus: 'var(--error-color-hover)'
         }
+      },
+      height: {
+        mini: 'var(--height-mini)',
+        tiny: 'var(--height-tiny)',
+        small: 'var(--height-small)',
+        medium: 'var(--height-medium)',
+        large: 'var(--height-large)',
+        huge: 'var(--height-huge)'
+      },
+      fontSize: {
+        mini: 'var(--font-size-mini)',
+        tiny: 'var(--font-size-tiny)',
+        small: 'var(--font-size-small)',
+        medium: 'var(--font-size-medium)',
+        large: 'var(--font-size-large)',
+        huge: 'var(--font-size-huge)'
       }
 
     }

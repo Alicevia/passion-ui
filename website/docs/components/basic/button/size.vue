@@ -1,21 +1,21 @@
 <template>
   <div class="basic">
-    <p-button @click="toggle">
+    <p-button size="mini" @click="toggle">
       default
     </p-button>
-    <p-button type="tertiary">
+    <p-button size="tiny" type="tertiary">
       tertiary
     </p-button>
-    <p-button type="primary">
+    <p-button size="small" type="primary">
       Primary
     </p-button>
-    <p-button type="info">
+    <p-button size="medium" type="info">
       Info
     </p-button>
-    <p-button type="warning">
+    <p-button size="large" type="warning">
       Warning
     </p-button>
-    <p-button type="error">
+    <p-button size="huge" type="error">
       Error
     </p-button>
   </div>

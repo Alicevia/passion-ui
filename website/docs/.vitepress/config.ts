@@ -4,7 +4,7 @@ import { resolve } from 'path'
 import markdownItContainer from 'markdown-it-container'
 import { MarkDownTransform } from './plugins/markdownTransform'
 import prism from 'prismjs'
-
+import postcss from '../../../packages/passion-ui/postcss.config'
 
 let config =  defineConfig({
   lang: 'zh-CN',
@@ -86,10 +86,10 @@ let config =  defineConfig({
                 resolve('./docs/components',`./${componentAddress}.vue`),'utf-8'
               )
             }
-            return  `<Demo :demos='demos' 
+            return  `<Demo :demos='demos'
             code="${encodeURIComponent(prism.highlight(code,prism.languages.html, 'html'))}"
           componentAddress="${componentAddress}" >`
-       
+
           }
           return  `</Demo>`;
         },
@@ -102,6 +102,9 @@ let config =  defineConfig({
       alias:{
         '@': resolve('./docs'),
       }
+    },
+    css:{
+      postcss
     },
     server:{
       fs:{
