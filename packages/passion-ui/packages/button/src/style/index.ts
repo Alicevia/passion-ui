@@ -1,5 +1,5 @@
 import { createClassPrefix } from '../../../shared/classUtils'
-const types = ['default', 'primary', 'info', 'success', 'warning', 'error']
+export const types = ['default', 'primary', 'info', 'success', 'warning', 'error']
 const prefix = createClassPrefix('button')
 export function typeStyle ({ addComponents, theme }) {
   addComponents({

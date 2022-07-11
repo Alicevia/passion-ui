@@ -4,15 +4,14 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import postcss from './postcss.config'
-// import tailwind from 'tailwindcss'
-// import autoprefixer from 'autoprefixer'
-// import tailwindConfig from './tailwind.config.js'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue({ reactivityTransform: true }), vueJsx()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      shared: fileURLToPath(new URL('./packages/shared', import.meta.url)),
       'passion-ui': fileURLToPath(new URL('../passion-ui/packages', import.meta.url)),
       website: fileURLToPath(new URL('../../website/docs/components', import.meta.url))
     }

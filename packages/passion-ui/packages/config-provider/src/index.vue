@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang='ts'>
-import { useCurrentElement, useCssVar } from '@vueuse/core'
+import { useCurrentElement } from '@vueuse/core'
 import { createConfigProviderState } from '../../_store'
 import { computed, onMounted, ref, unref } from 'vue'
 const el = useCurrentElement()
