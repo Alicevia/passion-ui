@@ -14,7 +14,10 @@
 <script setup lang='ts'>
 import { watch, ref, toRefs, computed } from 'vue'
 import { createClassPrefix } from '../../shared'
+import { useConfigProviderState } from '../../_store'
 import { types, sizes } from './style'
+const common = useConfigProviderState()
+console.log(common)
 const prefix = createClassPrefix('button')
 const props = defineProps({
   type: {

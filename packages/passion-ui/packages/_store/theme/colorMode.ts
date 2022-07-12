@@ -1,8 +1,8 @@
 import { useColorMode, usePreferredColorScheme, useStorage } from '@vueuse/core'
 import { computed, watch } from 'vue'
-
+// 系统颜色
 const preferredColor = usePreferredColorScheme()
-
+// 用户主题
 const colorMode = useColorMode({
   attribute: 'class',
   selector: 'html',

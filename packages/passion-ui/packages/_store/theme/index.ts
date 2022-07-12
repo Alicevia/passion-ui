@@ -1,2 +1,2 @@
-export * from './themeVars'
+export * from './commonVars'
 export * from './colorMode'

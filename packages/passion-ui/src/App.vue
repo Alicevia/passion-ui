@@ -1,11 +1,13 @@
 <template>
-  <p-config-provider class="main">
+  <div class=" h-full bg-base">
     <BasicButton></BasicButton>
-  </p-config-provider>
+  </div>
+  <!-- <p-config-provider class=" h-full bg-base"> -->
+  <!-- </p-config-provider> -->
 </template>
 
 <script setup lang="ts">
-import { PConfigProvider, commonThemeVars } from 'passion-ui'
+import { PConfigProvider } from 'passion-ui'
 import BasicButton from 'website/basic/button/basic.vue'
 </script>
 <style>
@@ -13,8 +15,4 @@ body,html,#app {
   height: 100%;
 }
 
-.main {
-  height: 100%;
-  background-color: v-bind('commonThemeVars.baseColor');
-}
 </style>
