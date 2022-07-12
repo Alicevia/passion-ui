@@ -1,19 +1,21 @@
-import { useColorMode, useMutationObserver } from '@vueuse/core'
-import { computed } from 'vue'
+import { useColorMode, usePreferredColorScheme, useStorage } from '@vueuse/core'
+import { computed, watch } from 'vue'
+
+const preferredColor = usePreferredColorScheme()
+
 const colorMode = useColorMode({
-  storageKey: 'passionUIColorMode'
+  attribute: 'class',
+  selector: 'html',
+  storageRef: useStorage('passionUIColorMode', preferredColor.value === 'no-preference' ? 'auto' : preferredColor.value),
+  storageKey: null
 })
-if (!import.meta.env.SSR) {
-  // ... 仅在客户端执行的逻辑
-  useMutationObserver(document.documentElement, mutations => {
-    if (!mutations[0].oldValue.includes('dark')) {
-      console.log(mutations[0].oldValue)
-      colorMode.value = 'dark'
-    } else {
-      colorMode.value = 'light'
-    }
-  }, { attributeFilter: ['class'], attributeOldValue: true })
-}
+watch(preferredColor, (v) => {
+  if (v === 'no-preference') {
+    colorMode.value = 'auto'
+  } else {
+    colorMode.value = v
+  }
+})
 
 // 主题控制
 function useColorModeControl () {

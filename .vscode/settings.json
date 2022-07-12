@@ -26,4 +26,7 @@
   ],
   "eslint.enable": true,
   "typescript.tsdk": "node_modules\\typescript\\lib",
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
 }
