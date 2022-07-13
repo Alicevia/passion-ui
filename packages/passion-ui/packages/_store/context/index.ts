@@ -1,22 +1,26 @@
 import { inject, provide } from 'vue'
 import type { App } from 'vue'
-import { useCommonVars } from '../theme/index'
+import { createCommonVars } from '../theme/index'
+// 基础全局状态
+const commonVars = createCommonVars()
 export const configProvideKey = Symbol('config-provide')
+
 // 生成全局状态 提供给所有组件
 export function createConfigProviderState (elRef) {
   // 父级的全局状态
-  const preCommon = useConfigProviderState()
-  const common = useCommonVars(elRef)
+  const parentCommon = useConfigProviderState()
+  // 生成当前组件的全局状态
+  const common = {}
   // 合并父级和当前状态
 
-  provide(configProvideKey, preCommon)
+  provide(configProvideKey, parentCommon)
   return {
     install (app:App) {
-      app.provide(configProvideKey, preCommon)
+      app.provide(configProvideKey, parentCommon)
     }
   }
 }
 // 使用这个状态
 export function useConfigProviderState () {
-  return inject(configProvideKey, null) ?? useCommonVars()
+  return inject(configProvideKey, commonVars)
 }
