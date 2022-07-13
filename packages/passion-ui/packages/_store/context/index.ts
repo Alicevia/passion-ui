@@ -1,12 +1,11 @@
 import { inject, provide } from 'vue'
 import type { App } from 'vue'
-import { createCommonVars } from '../theme/index'
+import { commonVars } from '../theme/initBaseVars'
 // 基础全局状态
-const commonVars = createCommonVars()
 export const configProvideKey = Symbol('config-provide')
 
 // 生成全局状态 提供给所有组件
-export function createConfigProviderState (elRef) {
+export function createConfigProviderState (colorRef, elRef) {
   // 父级的全局状态
   const parentCommon = useConfigProviderState()
   // 生成当前组件的全局状态
