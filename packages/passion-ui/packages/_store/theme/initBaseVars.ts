@@ -11,6 +11,6 @@ function createVars (color = {}, elRef) {
   return base
 }
 
-const commonVars = createVars(lightStyle)
+const Common = createVars(lightStyle)
 
-export { commonVars }
+export default { Common }
