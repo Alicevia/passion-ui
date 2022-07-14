@@ -1,17 +1,23 @@
 
 <template>
-  <div>
+  <div :style="themeOverrides?.Common">
     <slot></slot>
   </div>
 </template>
 
 <script setup lang='ts'>
-import { useCurrentElement } from '@vueuse/core'
-import { createConfigProviderState } from '../../_store'
-import { computed, onMounted, reactive, ref, unref } from 'vue'
-const el = useCurrentElement()
 
-createConfigProviderState(el, reactive({ Common: { '--name': 'xxx' } }))
+import { createConfigProviderState } from '../../_store'
+import { toRefs } from 'vue'
+const props = defineProps({
+  themeOverrides: {
+    type: Object,
+    default: () => ({})
+  }
+})
+const { themeOverrides } = toRefs(props)
+
+createConfigProviderState(themeOverrides)
 </script>
 <script  lang='ts'>
 export default {
