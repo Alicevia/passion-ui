@@ -13,4 +13,4 @@ function createVars (color = {}, elRef) {
 
 const Common = createVars(lightStyle)
 
-export default { Common }
+export default reactive({ Common })

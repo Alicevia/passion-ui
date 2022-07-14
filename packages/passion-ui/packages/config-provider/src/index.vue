@@ -8,9 +8,10 @@
 <script setup lang='ts'>
 import { useCurrentElement } from '@vueuse/core'
 import { createConfigProviderState } from '../../_store'
-import { computed, onMounted, ref, unref } from 'vue'
+import { computed, onMounted, reactive, ref, unref } from 'vue'
 const el = useCurrentElement()
-createConfigProviderState()
+
+createConfigProviderState(el, reactive({ Common: { '--name': 'xxx' } }))
 </script>
 <script  lang='ts'>
 export default {

@@ -1,32 +1,38 @@
-import { inject, provide, toRef } from 'vue'
+import { inject, provide, toRef, reactive, toRefs } from 'vue'
 import type { App } from 'vue'
 import themeVars from '../theme/initBaseVars'
 import { refDefault, useCssVar } from '@vueuse/core'
 // 基础全局状态
 export const configProvideKey = Symbol('config-provide')
 function mergeVars (baseVars, userVars, elRef) {
+  const newBaseVars = reactive({ ...baseVars })
   for (const key in userVars) {
-    baseVars[key] = useCssVar(key, elRef, { initialValue: refDefault(toRef(userVars, key), baseVars[key]) })
+    newBaseVars[key] = useCssVar(key, elRef, { initialValue: userVars[key] ?? newBaseVars[key] })
   }
+
+  return newBaseVars
 }
 function createNewThemeVars (preThemeVars, colors, elRef) {
+  const newThemeVars = reactive({
+    ...preThemeVars
+  })
   for (const key in colors) {
-    mergeVars(preThemeVars[key], colors[key], elRef)
+    newThemeVars[key] = mergeVars(preThemeVars[key], colors[key], elRef)
   }
+  return newThemeVars
 }
 // 生成全局状态 提供给所有组件
-export function createConfigProviderState (colors, elRef) {
+export function createConfigProviderState (elRef, colors = {}) {
   // 父级的全局状态
   const preThemeVars = useConfigProviderState()
   // 生成当前组件的全局状态
   const newThemeVars = createNewThemeVars(preThemeVars, colors, elRef)
-
+  console.log(preThemeVars.Common['--name'], newThemeVars.Common['--name'])
   // 合并父级和当前状态
-
-  provide(configProvideKey, preThemeVars)
+  provide(configProvideKey, newThemeVars)
   return {
     install (app:App) {
-      app.provide(configProvideKey, preThemeVars)
+      app.provide(configProvideKey, newThemeVars)
     }
   }
 }

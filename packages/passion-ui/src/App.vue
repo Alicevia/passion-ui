@@ -1,9 +1,10 @@
 <template>
-  <div class=" h-full bg-base">
+  <!-- <div class=" h-full bg-base">
     <BasicButton></BasicButton>
-  </div>
-  <!-- <p-config-provider class=" h-full bg-base"> -->
-  <!-- </p-config-provider> -->
+  </div> -->
+  <p-config-provider class=" h-full bg-base">
+    <BasicButton></BasicButton>
+  </p-config-provider>
 </template>
 
 <script setup lang="ts">
