@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import { useCssVar } from '@vueuse/core'
 import './tailwindcss/index.css'
 
 import lightStyle from './themeVars/lightStyle.module.css'

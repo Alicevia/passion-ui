@@ -24,6 +24,7 @@ import { PConfigProvider } from 'passion-ui'
 import { reactive } from 'vue'
 import BasicButton from 'website/basic/button/basic.vue'
 const themeOverrides = reactive({ Common: { '--primary-color': 'red' } })
+
 const themeOverrides2 = reactive({ Common: { '--primary-color': 'pink' } })
 
 </script>
