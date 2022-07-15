@@ -1,0 +1,26 @@
+@layer base {
+
+  :root {
+    --padding-mini: '0 6px';
+    --padding-tiny: '0 8px';
+    --padding-small: '0 10px';
+    --padding-medium: '0 14px';
+    --padding-large: '0 18px';
+    --padding-huge: '0 20px';
+
+    --padding-round-mini: '0 6px';
+    --padding-round-tiny: '0 8px';
+    --padding-round-small: '0 10px';
+    --padding-round-medium: '0 14px';
+    --padding-round-large: '0 18px';
+    --padding-round-huge: '0 20px';
+
+    --primary-color: #18a058;
+    --primary-color-hover: #36ad6a;
+    --primary-color-pressed: #0c7a43;
+    --primary-color-suppl: #36ad6a;
+
+
+
+  }
+}
