@@ -1,7 +1,7 @@
 import tailwind from 'tailwindcss'
-import plugin from 'tailwindcss/plugin'
 import autoprefixer from 'autoprefixer'
-import tailwindConfig from './tailwind.config.js'
-import { typeStyle, sizeStyle } from './packages/button/src/style/index.ts'
-tailwindConfig.plugins = [plugin(typeStyle), plugin(sizeStyle)]
+import tailwindConfig from './tailwind.js'
+import { buttonPlugins } from './packages/button/src/tailwindcss/index'
+import { baseVarsPlugins } from './packages/_store/theme/themeVars'
+tailwindConfig.plugins = [...buttonPlugins(), ...baseVarsPlugins()]
 export default { plugins: [tailwind(tailwindConfig), autoprefixer()] }

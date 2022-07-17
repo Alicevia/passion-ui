@@ -7,7 +7,8 @@ export function sizeStyle ({ addComponents, theme }) {
     addComponents({
       [`.${prefix}-${size}`]: {
         height: theme(`height.${size}`),
-        fontSize: theme(`fontSize.${size}`)
+        fontSize: theme(`fontSize.${size}`),
+        padding: theme(`padding.${size}`)
       }
     })
   })

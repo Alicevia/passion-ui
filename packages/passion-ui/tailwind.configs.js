@@ -30,7 +30,7 @@ module.exports = {
           tc3: 'var(--text-color-3)',
           disabled: 'var(--text-color-disabled)'
         },
-        border: {
+        borderColor: {
           DEFAULT: 'var(--border-color)'
         },
         primary: {
@@ -62,6 +62,16 @@ module.exports = {
           hover: 'var(--error-color-hover)',
           active: 'var(--error-color-pressed)',
           focus: 'var(--error-color-hover)'
+        },
+        placeholder: {
+          DEFAULT: 'var(--placeholder-color)',
+          disabled: 'var(--placeholder-color-disabled)'
+        },
+        icon: {
+          DEFAULT: 'var(--icon-color)',
+          hover: 'var(--icon-color-hover)',
+          active: 'var(--icon-color-pressed)',
+          disabled: 'var(--icon-color-disabled)'
         }
       },
       height: {
@@ -79,6 +89,40 @@ module.exports = {
         medium: 'var(--font-size-medium)',
         large: 'var(--font-size-large)',
         huge: 'var(--font-size-huge)'
+      },
+      padding: {
+        mini: 'var(--padding-mini)',
+        tiny: 'var(--padding-tiny)',
+        small: 'var(--padding-small)',
+        medium: 'var(--padding-medium)',
+        large: 'var(--padding-large)',
+        huge: 'var(--padding-huge)',
+        round: {
+          mini: 'var(--padding-round-mini)',
+          tiny: 'var(--padding-round-tiny)',
+          small: 'var(--padding-round-small)',
+          medium: 'var(--padding-round-medium)',
+          large: 'var(--padding-round-large)',
+          huge: 'var(--padding-round-huge)'
+        }
+
+      },
+      borderRadius: {
+        DEFAULT: 'var(--border-radius)',
+        mini: 'var(--border-radius-mini)',
+        tiny: 'var(--border-radius-tiny)',
+        small: 'var(--border-radius-small)',
+        medium: 'var(--border-radius-medium)',
+        large: 'var(--border-radius-large)',
+        huge: 'var(--border-radius-huge)'
+      },
+      opacity: {
+        opac1: 'var(--opacity-1)',
+        opac2: 'var(--opacity-2)',
+        opac3: 'var(--opacity-3)',
+        opac4: 'var(--opacity-4)',
+        opac5: 'var(--opacity-5)',
+        disabled: 'var(--opacity-disabled)'
       }
 
     }

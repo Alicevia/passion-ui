@@ -1,6 +1,8 @@
 <template>
   <button
-    class="transition-all leading-none px-4 py-0 border box-border"
+
+    :style="Button"
+    class="transition-all leading-none border box-border "
     :class="{
       [typeClass]:true,
       [sizeClass]:true,
@@ -15,9 +17,8 @@
 import { watch, ref, toRefs, computed } from 'vue'
 import { createClassPrefix } from '../../shared'
 import { useConfigProviderState } from '../../_store'
-import { types, sizes } from './style'
-// const common = useConfigProviderState()
-const prefix = createClassPrefix('button')
+import { types, sizes } from './tailwindcss'
+
 const props = defineProps({
   type: {
     type: String,
@@ -32,14 +33,25 @@ const props = defineProps({
     validator (value: string) {
       return sizes.includes(value)
     }
+  },
+  ghost: {
+    type: Boolean,
+    default: false
   }
 })
-const { type, size } = toRefs(props)
+const { Button } = useConfigProviderState()
+const prefix = createClassPrefix('button')
+const { type, size, ghost } = toRefs(props)
 const createClass = (k) => () => prefix + '-' + k.value
 
 const typeClass = computed(createClass(type))
 const sizeClass = computed(createClass(size))
 
+</script>
+<script  lang='ts'>
+export default {
+  name: 'Button'
+}
 </script>
 <style scoped>
 </style>

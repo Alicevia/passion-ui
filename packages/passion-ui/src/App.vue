@@ -1,9 +1,10 @@
 <template>
-  <!-- <div class=" h-full bg-base">
-    <BasicButton></BasicButton>
-  </div> -->
   <div>
+    <!-- <p-button type="primary">
+      32
+    </p-button> -->
     <BasicButton></BasicButton>
+    <!--
     <br>
     <p-config-provider class=" h-full bg-base">
       <BasicButton></BasicButton>
@@ -15,7 +16,7 @@
     <br>
     <p-config-provider class=" h-full bg-base" :theme-overrides="themeOverrides2">
       <BasicButton></BasicButton>
-    </p-config-provider>
+    </p-config-provider> -->
   </div>
 </template>
 
