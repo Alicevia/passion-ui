@@ -1,10 +1,10 @@
 import { reactive } from 'vue'
 import { buttonPrefix } from '../constants'
-import buttonVars from './buttonStyle'
+import buttonStyle from './buttonStyle'
 
 export function setButtonVars ({ addComponents }) {
   addComponents({
-    [`.${buttonPrefix}`]: buttonVars
+    [`.${buttonPrefix}`]: buttonStyle
   })
 }
-export const Button = reactive(buttonVars)
+export const ButtonCssVars = reactive(buttonStyle)

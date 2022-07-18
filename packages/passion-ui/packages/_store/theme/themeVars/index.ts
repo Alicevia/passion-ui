@@ -29,4 +29,4 @@ function createVars (color = {}) {
   return base
 }
 
-export const Common = createVars(lightStyle)
+export const CommonCssVars = createVars(lightStyle)

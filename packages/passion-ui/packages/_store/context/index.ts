@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import { inject, provide, toRef, reactive, toRefs } from 'vue'
-import themeVars from '../theme/initBaseVars'
+import OriginThemeVars from '../theme/initBaseVars'
 import { toReactive } from '@vueuse/core'
 // 基础全局状态
 export const configProvideKey = Symbol('config-provide')
@@ -25,6 +25,7 @@ export function createConfigProviderState (themeOverrides) {
   themeOverrides = toReactive(themeOverrides)
   // 父级的全局状态
   const preThemeVars = useConfigProviderState()
+
   // 合并父级和当前状态 生成当前组件的全局状态
   const newThemeVars = createNewThemeVars(preThemeVars, themeOverrides)
   // 提供给所有的子组件
@@ -37,5 +38,7 @@ export function createConfigProviderState (themeOverrides) {
 }
 // 使用这个状态
 export function useConfigProviderState () {
-  return inject(configProvideKey, themeVars)
+  return inject(configProvideKey, OriginThemeVars)
 }
+console.log(OriginThemeVars)
+export { OriginThemeVars }

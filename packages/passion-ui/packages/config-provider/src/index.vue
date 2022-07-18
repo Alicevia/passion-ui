@@ -1,6 +1,6 @@
 
 <template>
-  <div :style="themeOverrides?.Common">
+  <div :style="themeOverrides?.CommonCssVars">
     <slot></slot>
   </div>
 </template>

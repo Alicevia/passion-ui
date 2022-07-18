@@ -29,17 +29,16 @@ let config =  defineConfig({
     sidebar:{
       '/components/': [
         {
-          text: 'basic',
+          text: '基础组件',
           items: [
             { text: 'Button', link: '/components/basic/button/' },
             { text: 'Input', link:'/components/basic/input/' }
           ]
         },
         {
-          text: 'dataDisplay',
+          text: '配置组件',
           items: [
-            { text: 'Button', link: '/components/basic/button/' },
-            { text: 'Input', link:'/components/basic/input/' }
+            { text: 'ConfigProvider', link: '/components/configure/configProvider/' },
           ]
         }
       ],

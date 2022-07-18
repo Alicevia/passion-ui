@@ -36,7 +36,7 @@ export function typeStyle ({ addComponents, theme }) {
   types.slice(2).forEach(type => {
     addComponents({
       [`.${buttonPrefix}-${type}`]: {
-        color: theme('textColor.base'),
+        color: theme('textColor.base.DEFAULT'),
         backgroundColor: theme(`backgroundColor.${type}.DEFAULT`),
         border: 'none',
         '&:hover': {
