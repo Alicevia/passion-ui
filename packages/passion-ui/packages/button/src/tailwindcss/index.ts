@@ -1,6 +1,7 @@
 import plugin from 'tailwindcss/plugin'
-import { sizeStyle, sizes } from './size'
-import { typeStyle, types } from './type'
+import { types, sizes } from '../constants'
+import { sizeStyle } from './size'
+import { typeStyle } from './type'
 import { setButtonVars, Button } from './vars'
 
 export const buttonPlugins = () => {

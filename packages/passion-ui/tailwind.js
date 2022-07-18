@@ -3,7 +3,42 @@
 // const plugin = require('tailwindcss/plugin')
 // const { typeStyle } = require('./packages/button/src/style/index.ts')
 // console.log(typeStyle)
+const colors = {
+  base: {
+    DEFAULT: 'var(--base-color)'
+  },
 
+  primary: {
+    DEFAULT: 'var(--primary-color)',
+    hover: 'var(--primary-color-hover)',
+    active: 'var(--primary-color-pressed)',
+    focus: 'var(--primary-color-hover)'
+  },
+  info: {
+    DEFAULT: 'var(--info-color)',
+    hover: 'var(--info-color-hover)',
+    active: 'var(--info-color-pressed)',
+    focus: 'var(--info-color-hover)'
+  },
+  success: {
+    DEFAULT: 'var(--success-color)',
+    hover: 'var(--success-color-hover)',
+    active: 'var(--success-color-pressed)',
+    focus: 'var(--success-color-hover)'
+  },
+  warning: {
+    DEFAULT: 'var(--warning-color)',
+    hover: 'var(--warning-color-hover)',
+    active: 'var(--warning-color-pressed)',
+    focus: 'var(--warning-color-hover)'
+  },
+  error: {
+    DEFAULT: 'var(--error-color)',
+    hover: 'var(--error-color-hover)',
+    active: 'var(--error-color-pressed)',
+    focus: 'var(--error-color-hover)'
+  }
+}
 module.exports = {
   content: [
     './index.html',
@@ -20,53 +55,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        base: {
-          DEFAULT: 'var(--base-color)'
-        },
-        text: {
-          DEFAULT: 'var(--text-color-base)',
-          tc1: 'var(--text-color-1)',
-          tc2: 'var(--text-color-2)',
-          tc3: 'var(--text-color-3)',
-          disabled: 'var(--text-color-disabled)'
-        },
-        borderColor: {
-          DEFAULT: 'var(--border-color)'
-        },
-        primary: {
-          DEFAULT: 'var(--primary-color)',
-          hover: 'var(--primary-color-hover)',
-          active: 'var(--primary-color-pressed)',
-          focus: 'var(--primary-color-hover)'
-        },
-        info: {
-          DEFAULT: 'var(--info-color)',
-          hover: 'var(--info-color-hover)',
-          active: 'var(--info-color-pressed)',
-          focus: 'var(--info-color-hover)'
-        },
-        success: {
-          DEFAULT: 'var(--success-color)',
-          hover: 'var(--success-color-hover)',
-          active: 'var(--success-color-pressed)',
-          focus: 'var(--success-color-hover)'
-        },
-        warning: {
-          DEFAULT: 'var(--warning-color)',
-          hover: 'var(--warning-color-hover)',
-          active: 'var(--warning-color-pressed)',
-          focus: 'var(--warning-color-hover)'
-        },
-        error: {
-          DEFAULT: 'var(--error-color)',
-          hover: 'var(--error-color-hover)',
-          active: 'var(--error-color-pressed)',
-          focus: 'var(--error-color-hover)'
-        },
-        placeholder: {
-          DEFAULT: 'var(--placeholder-color)',
-          disabled: 'var(--placeholder-color-disabled)'
-        },
+        ...colors,
         icon: {
           DEFAULT: 'var(--icon-color)',
           hover: 'var(--icon-color-hover)',
@@ -123,6 +112,25 @@ module.exports = {
         opac4: 'var(--opacity-4)',
         opac5: 'var(--opacity-5)',
         disabled: 'var(--opacity-disabled)'
+      },
+      textColor: {
+        DEFAULT: 'var(--text-color-base)',
+        tc1: 'var(--text-color-1)',
+        tc2: 'var(--text-color-2)',
+        tc3: 'var(--text-color-3)',
+        disabled: 'var(--text-color-disabled)',
+        ...colors
+      },
+      borderColor: {
+        DEFAULT: 'var(--border-color)',
+        ...colors
+      },
+      placeholderColor: {
+        DEFAULT: 'var(--placeholder-color)',
+        disabled: 'var(--placeholder-color-disabled)'
+      },
+      backgroundColor: {
+        ...colors
       }
 
     }

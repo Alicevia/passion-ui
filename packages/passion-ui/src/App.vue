@@ -1,14 +1,16 @@
 <template>
-  <div>
-    <!-- <p-button type="primary">
+  <!-- <p-button type="primary">
       32
     </p-button> -->
+  <!-- <BasicButton></BasicButton> -->
+  <p-config-provider class=" h-full bg-base">
     <BasicButton></BasicButton>
-    <!--
-    <br>
-    <p-config-provider class=" h-full bg-base">
-      <BasicButton></BasicButton>
-    </p-config-provider>
+    <div class=" bg-base">
+      ceshi
+    </div>
+  </p-config-provider>
+  <!--
+
     <br>
     <p-config-provider class=" h-full bg-base" :theme-overrides="themeOverrides">
       <BasicButton></BasicButton>
@@ -17,7 +19,6 @@
     <p-config-provider class=" h-full bg-base" :theme-overrides="themeOverrides2">
       <BasicButton></BasicButton>
     </p-config-provider> -->
-  </div>
 </template>
 
 <script setup lang="ts">

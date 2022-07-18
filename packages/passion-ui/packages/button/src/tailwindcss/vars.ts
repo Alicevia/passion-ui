@@ -1,11 +1,10 @@
 import { reactive } from 'vue'
-import buttonVars from './button.ts'
-import { createClassPrefix } from '../../../shared/classUtils'
-const prefix = createClassPrefix('button')
+import { buttonPrefix } from '../constants'
+import buttonVars from './buttonStyle'
 
-export function setButtonVars ({ addComponents, theme }) {
+export function setButtonVars ({ addComponents }) {
   addComponents({
-    [`.${prefix}`]: buttonVars
+    [`.${buttonPrefix}`]: buttonVars
   })
 }
 export const Button = reactive(buttonVars)

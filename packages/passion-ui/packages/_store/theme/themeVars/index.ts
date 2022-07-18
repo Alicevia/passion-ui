@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin'
-import lightStyle from './lightStyle.ts'
-import darkStyle from './darkStyle.ts'
+import lightStyle from './lightStyle'
+import darkStyle from './darkStyle'
 import { useColorModeControl } from '../colorMode'
 import { reactive, computed } from 'vue'
 const { isDark } = useColorModeControl()

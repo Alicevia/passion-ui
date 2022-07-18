@@ -1,4 +1,4 @@
-import { reactive, computed } from 'vue'
+import { reactive } from 'vue'
 import './tailwindcss/index.css'
 
 import { Button } from '../../button/src/tailwindcss/index'
