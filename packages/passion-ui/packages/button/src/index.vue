@@ -1,8 +1,7 @@
 <template>
   <button
-
-    :style="themeOverrides?ButtonCssVars:originButtonVars"
-    class="transition-all leading-none border box-border "
+    :style="buttonCssVars"
+    class="transition-all  leading-none border box-border"
     :class="{
       [typeClass]:true,
       [sizeClass]:true,
@@ -37,20 +36,26 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  themeOverrides: {
+  buttonThemeOverride: {
     type: Object,
     default: () => ({})
   }
 })
 const { ButtonCssVars } = useConfigProviderState()
-const { type, size, ghost, themeOverrides } = toRefs(props)
-const originButtonVars = computed(() => {
-  return {
-    ...OriginThemeVars.CommonCssVars,
-    ...OriginThemeVars.ButtonCssVars
+const { type, size, ghost, buttonThemeOverride } = toRefs(props)
+const buttonCssVars = computed(() => {
+  if (buttonThemeOverride.value) {
+    return {
+      ...ButtonCssVars,
+      ...buttonThemeOverride.value
+    }
+  } else {
+    return {
+      ...OriginThemeVars.CommonCssVars,
+      ...OriginThemeVars.ButtonCssVars
+    }
   }
 })
-console.log(originButtonVars.value, themeOverrides.value)
 const createClass = (k) => () => buttonPrefix + '-' + k.value
 
 const typeClass = computed(createClass(type))

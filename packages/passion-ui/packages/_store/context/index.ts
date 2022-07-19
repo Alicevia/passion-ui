@@ -1,12 +1,14 @@
 import type { App } from 'vue'
-import { inject, provide, toRef, reactive, toRefs } from 'vue'
+import { inject, provide, toRef, reactive } from 'vue'
 import OriginThemeVars from '../theme/initBaseVars'
 import { toReactive } from '@vueuse/core'
 // 基础全局状态
 export const configProvideKey = Symbol('config-provide')
 // 合并用户主题和默认主题
 function mergeVars (baseVars, userVars) {
-  const newBaseVars = reactive(toRefs(baseVars))
+  const newBaseVars = reactive({
+    ...baseVars
+  })
   for (const key in userVars) {
     newBaseVars[key] = toRef(userVars, key)
   }
@@ -14,7 +16,9 @@ function mergeVars (baseVars, userVars) {
 }
 // 创建新的主题
 function createNewThemeVars (preThemeVars, themeOverrides) {
-  const newThemeVars = reactive(toRefs(preThemeVars))
+  const newThemeVars = reactive({
+    ...preThemeVars
+  })
   for (const key in themeOverrides) {
     newThemeVars[key] = mergeVars(preThemeVars[key], themeOverrides[key])
   }
@@ -40,5 +44,4 @@ export function createConfigProviderState (themeOverrides) {
 export function useConfigProviderState () {
   return inject(configProvideKey, OriginThemeVars)
 }
-console.log(OriginThemeVars)
 export { OriginThemeVars }

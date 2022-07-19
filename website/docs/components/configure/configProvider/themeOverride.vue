@@ -4,7 +4,8 @@
       <p-button type="primary">
         主题色覆盖
       </p-button>
-      <p-button class=" ml-6" type="primary" :theme-overrides="null">
+
+      <p-button class="ml-[10px]" type="primary" :button-theme-override="null">
         我就是要用最初的主题色
       </p-button>
     </p-config-provider>
@@ -17,11 +18,12 @@ import { reactive } from 'vue'
 
 const themeOverrides = reactive({
   CommonCssVars: {
-    '--primary-color': 'pink',
+    '--primary-color': 'red',
     '--primary-color-hover': 'green',
     '--primary-color-hover-pressed': 'blue'
   }
 })
+
 </script>
 <style scoped>
 </style>
