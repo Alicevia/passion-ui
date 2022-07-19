@@ -1,8 +1,5 @@
-// import plugin from 'tailwindcss/plugin'
-// import { typeStyle } from './packages/button/src/style/index.ts'
-// const plugin = require('tailwindcss/plugin')
-// const { typeStyle } = require('./packages/button/src/style/index.ts')
-// console.log(typeStyle)
+const resolve = require('path').resolve
+console.log(resolve(__dirname, '../../website/docs/components/**/*.{vue,js,ts,jsx,tsx}'))
 const colors = {
   base: {
     DEFAULT: 'var(--base-color)'
@@ -44,7 +41,8 @@ module.exports = {
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
     './packages/**/*.{vue,js,ts,jsx,tsx}',
-    '../packages/passion-ui/packages/**/*.{vue,js,ts,jsx,tsx}'
+    '../packages/passion-ui/packages/**/*.{vue,js,ts,jsx,tsx}',
+    resolve(__dirname, '../../website/docs/components/**/*.{vue,js,ts,jsx,tsx}')
   ],
   safelist: [
     {
