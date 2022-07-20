@@ -25,3 +25,9 @@ basic/button/size
 ::: demo
 basic/button/ghost
 :::
+
+## 虚线按钮
+`dashed`属性控制按钮边框样式 注意当开启`dashed`的时候会自动开启`幽灵按钮`
+::: demo
+basic/button/dashed
+:::

@@ -3,7 +3,7 @@
       32
     </p-button> -->
   <p-config-provider class=" h-full bg-base">
-    <GhostButton></GhostButton>
+    <DashedButton></DashedButton>
   </p-config-provider>
   <!--
 
@@ -20,6 +20,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import GhostButton from 'website/basic/button/ghost.vue'
+import DashedButton from 'website/basic/button/dashed.vue'
 
 </script>
 <style>

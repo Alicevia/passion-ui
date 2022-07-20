@@ -56,19 +56,18 @@ export function typeStyle ({ addComponents, theme }) {
       [`.${buttonPrefix}-${type}-ghost`]: {
         color: theme(`textColor.${type}.DEFAULT`),
         backgroundColor: theme('colors.transparent'),
-        border: `1px solid ${theme(`borderColor.${type}.DEFAULT`)}`,
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: theme(`borderColor.${type}.DEFAULT`),
         '&:hover': {
           borderColor: theme(`borderColor.${type}.hover`),
           color: theme(`colors.${type}.hover`),
           backgroundColor: 'unset'
-
         },
         '&:focus': {
           borderColor: theme(`borderColor.${type}.focus`),
           color: theme(`colors.${type}.focus`),
-
           backgroundColor: 'unset'
-
         },
         '&:active': {
           borderColor: theme(`borderColor.${type}.active`),

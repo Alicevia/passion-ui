@@ -5,7 +5,8 @@
     :class="{
       [typeClass]:true,
       [sizeClass]:true,
-      [ghostClass]:ghost,
+      [ghostClass]:dashed||ghost,
+      ['border-dashed']:dashed
 
     }"
   >
@@ -38,6 +39,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  dashed: {
+    type: Boolean,
+    default: false
+  },
   buttonThemeOverride: {
     type: Object,
     default: () => ({})
@@ -45,7 +50,7 @@ const props = defineProps({
 })
 const createClass = (k) => () => buttonPrefix + '-' + unref(k)
 const { ButtonCssVars } = useConfigProviderState()
-const { type, size, ghost, buttonThemeOverride } = toRefs(props)
+const { type, size, ghost, dashed, buttonThemeOverride } = toRefs(props)
 const buttonCssVars = computed(() => {
   if (buttonThemeOverride.value) {
     return {
@@ -59,6 +64,7 @@ const buttonCssVars = computed(() => {
     }
   }
 })
+
 const typeClass = computed(createClass(type))
 const sizeClass = computed(createClass(size))
 const ghostClass = computed(() => typeClass.value + '-ghost')
