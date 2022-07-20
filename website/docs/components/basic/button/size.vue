@@ -9,6 +9,9 @@
     <p-button size="small" type="primary">
       Primary
     </p-button>
+    <p-button type="success" size="small">
+      Success
+    </p-button>
     <p-button size="medium" type="info">
       Info
     </p-button>
