@@ -6,13 +6,13 @@ export function typeStyle ({ addComponents, theme }) {
       color: theme('textColor.tc2'),
       backgroundColor: theme('colors.transparent'),
       border: `1px solid ${theme('borderColor.DEFAULT')}`,
-      '&:hover': {
+      [`&:not(.${buttonPrefix}-disabled):hover`]: {
         'border-color': theme('borderColor.primary.DEFAULT')
       },
-      '&:focus': {
+      [`&:not(.${buttonPrefix}-disabled):focus`]: {
         'border-color': theme('borderColor.primary.DEFAULT')
       },
-      '&:active': {
+      [`&:not(.${buttonPrefix}-disabled):active`]: {
         'border-color': theme('borderColor.primary.active')
       }
     }
@@ -22,13 +22,13 @@ export function typeStyle ({ addComponents, theme }) {
       color: theme('textColor.tc3'),
       backgroundColor: theme('colors.transparent'),
       border: `1px solid ${theme('borderColor.DEFAULT')}`,
-      '&:hover': {
+      [`&:not(.${buttonPrefix}-disabled):hover`]: {
         'border-color': theme('borderColor.primary.DEFAULT')
       },
-      '&:focus': {
+      [`&:not(.${buttonPrefix}-disabled):focus`]: {
         'border-color': theme('borderColor.primary.DEFAULT')
       },
-      '&:active': {
+      [`&:not(.${buttonPrefix}-disabled):active`]: {
         'border-color': theme('borderColor.primary.active')
       }
     }
@@ -39,19 +39,18 @@ export function typeStyle ({ addComponents, theme }) {
         color: theme('textColor.base.DEFAULT'),
         backgroundColor: theme(`backgroundColor.${type}.DEFAULT`),
         border: 'none',
-        '&:hover': {
+        [`&:not(.${buttonPrefix}-disabled):hover`]: {
           backgroundColor: theme(`backgroundColor.${type}.hover`)
         },
-        '&:focus': {
+        [`&:not(.${buttonPrefix}-disabled):focus`]: {
           backgroundColor: theme(`backgroundColor.${type}.focus`)
         },
-        '&:active': {
+        [`&:not(.${buttonPrefix}-disabled):active`]: {
           backgroundColor: theme(`backgroundColor.${type}.active`)
         }
       }
     })
-  })
-  types.slice(2).forEach(type => {
+    // ghost
     addComponents({
       [`.${buttonPrefix}-${type}-ghost`]: {
         color: theme(`textColor.${type}.DEFAULT`),
@@ -59,24 +58,54 @@ export function typeStyle ({ addComponents, theme }) {
         borderWidth: '1px',
         borderStyle: 'solid',
         borderColor: theme(`borderColor.${type}.DEFAULT`),
-        '&:hover': {
+        [`&:not(.${buttonPrefix}-disabled):hover`]: {
           borderColor: theme(`borderColor.${type}.hover`),
           color: theme(`colors.${type}.hover`),
           backgroundColor: 'unset'
         },
-        '&:focus': {
+        [`&:not(.${buttonPrefix}-disabled):focus`]: {
           borderColor: theme(`borderColor.${type}.focus`),
           color: theme(`colors.${type}.focus`),
           backgroundColor: 'unset'
         },
-        '&:active': {
+        [`&:not(.${buttonPrefix}-disabled):active`]: {
           borderColor: theme(`borderColor.${type}.active`),
           color: theme(`colors.${type}.active`),
-
           backgroundColor: 'unset'
 
         }
       }
     })
+    addComponents({
+      [`.${buttonPrefix}-${type}-text`]: {
+        color: theme(`colors.${type}.DEFAULT`),
+        backgroundColor: 'unset',
+        border: 'none',
+        padding: '0',
+        [`&:not(.${buttonPrefix}-disabled):hover`]: {
+          backgroundColor: 'unset',
+          color: theme(`colors.${type}.hover`)
+
+        },
+        [`&:not(.${buttonPrefix}-disabled):focus`]: {
+          backgroundColor: 'unset',
+          color: theme(`colors.${type}.focus`)
+
+        },
+        [`&:not(.${buttonPrefix}-disabled):active`]: {
+          backgroundColor: 'unset',
+          color: theme(`colors.${type}.active`)
+
+        }
+      }
+    })
+  })
+
+  // disabled
+  addComponents({
+    [`.${buttonPrefix}-disabled`]: {
+      opacity: theme('opacity.disabled'),
+      cursor: 'not-allowed'
+    }
   })
 }

@@ -1,24 +1,24 @@
 <template>
   <div class=" flex gap-3">
-    <p-button disabled @click="toggle">
+    <p-button text @click="toggle">
       default
     </p-button>
-    <p-button type="tertiary" disabled>
+    <p-button type="tertiary" text>
       tertiary
     </p-button>
-    <p-button type="primary" ghost disabled>
+    <p-button type="primary" text>
       Primary
     </p-button>
-    <p-button type="success" disabled>
+    <p-button type="info" text>
       Info
     </p-button>
-    <p-button type="info" disabled>
-      Info
+    <p-button type="success" text>
+      Success
     </p-button>
-    <p-button type="warning" disabled>
+    <p-button type="warning" text>
       Warning
     </p-button>
-    <p-button type="error" disabled>
+    <p-button type="error" text>
       Error
     </p-button>
   </div>

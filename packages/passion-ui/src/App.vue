@@ -1,26 +1,16 @@
 <template>
-  <!-- <p-button type="primary">
-      32
-    </p-button> -->
   <p-config-provider class=" h-full bg-base">
-    <DashedButton></DashedButton>
+    <TextButton></TextButton>
+    <!-- <DisabledButton></DisabledButton> -->
   </p-config-provider>
-  <!--
-
-    <br>
-    <p-config-provider class=" h-full bg-base" :theme-overrides="themeOverrides">
-      <BasicButton></BasicButton>
-    </p-config-provider>
-    <br>
-    <p-config-provider class=" h-full bg-base" :theme-overrides="themeOverrides2">
-      <BasicButton></BasicButton>
-    </p-config-provider> -->
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue'
 import GhostButton from 'website/basic/button/ghost.vue'
 import DashedButton from 'website/basic/button/dashed.vue'
+import TextButton from 'website/basic/button/text.vue'
+import DisabledButton from 'website/basic/button/disabled.vue'
 
 </script>
 <style>
