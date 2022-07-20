@@ -20,3 +20,8 @@ basic/button/basic
 basic/button/size
 :::
 
+## 幽灵按钮
+`ghost`属性控制按钮的背景是否透明
+::: demo
+basic/button/ghost
+:::

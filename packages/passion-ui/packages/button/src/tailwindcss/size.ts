@@ -6,7 +6,8 @@ export function sizeStyle ({ addComponents, theme }) {
       [`.${buttonPrefix}-${size}`]: {
         height: theme(`height.${size}`),
         fontSize: theme(`fontSize.${size}`),
-        padding: theme(`padding.${size}`)
+        padding: theme(`padding.${size}`),
+        borderRadius: theme(`borderRadius.${size}`)
       }
     })
   })

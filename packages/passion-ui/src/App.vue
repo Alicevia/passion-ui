@@ -2,12 +2,8 @@
   <!-- <p-button type="primary">
       32
     </p-button> -->
-  <!-- <BasicButton></BasicButton> -->
   <p-config-provider class=" h-full bg-base">
-    <BasicButton></BasicButton>
-    <div class=" bg-base">
-      ceshi
-    </div>
+    <GhostButton></GhostButton>
   </p-config-provider>
   <!--
 
@@ -23,10 +19,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import BasicButton from 'website/basic/button/basic.vue'
-const themeOverrides = reactive({ CommonCssVars: { '--primary-color': 'red' } })
-
-const themeOverrides2 = reactive({ CommonCssVars: { '--primary-color': 'pink' } })
+import GhostButton from 'website/basic/button/ghost.vue'
 
 </script>
 <style>

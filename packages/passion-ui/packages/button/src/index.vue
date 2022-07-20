@@ -5,6 +5,8 @@
     :class="{
       [typeClass]:true,
       [sizeClass]:true,
+      [ghostClass]:ghost,
+
     }"
   >
     <slot>
@@ -13,7 +15,7 @@
 </template>
 
 <script setup lang='ts'>
-import { toRefs, computed } from 'vue'
+import { toRefs, computed, unref } from 'vue'
 import { useConfigProviderState, OriginThemeVars } from '../../_store'
 import { types, sizes, buttonPrefix } from './constants'
 
@@ -41,6 +43,7 @@ const props = defineProps({
     default: () => ({})
   }
 })
+const createClass = (k) => () => buttonPrefix + '-' + unref(k)
 const { ButtonCssVars } = useConfigProviderState()
 const { type, size, ghost, buttonThemeOverride } = toRefs(props)
 const buttonCssVars = computed(() => {
@@ -56,10 +59,9 @@ const buttonCssVars = computed(() => {
     }
   }
 })
-const createClass = (k) => () => buttonPrefix + '-' + k.value
-
 const typeClass = computed(createClass(type))
 const sizeClass = computed(createClass(size))
+const ghostClass = computed(() => typeClass.value + '-ghost')
 
 </script>
 <script  lang='ts'>
