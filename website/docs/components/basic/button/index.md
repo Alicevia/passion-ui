@@ -31,3 +31,14 @@ basic/button/ghost
 ::: demo
 basic/button/dashed
 :::
+## 禁用按钮
+`disabled` 禁用当前按钮
+::: demo
+basic/button/disabled
+:::
+
+## 文本按钮
+`text` 像文本一样的按钮
+::: demo
+basic/button/text
+:::

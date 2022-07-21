@@ -1,24 +1,24 @@
 <template>
   <div class=" flex gap-3">
-    <p-button dashed @click="toggle">
+    <p-button text @click="toggle">
       default
     </p-button>
-    <p-button type="tertiary" dashed>
+    <p-button type="tertiary" text>
       tertiary
     </p-button>
-    <p-button type="primary" dashed>
+    <p-button type="primary" text>
       Primary
     </p-button>
-    <p-button type="success" dashed>
-      Success
-    </p-button>
-    <p-button type="info" dashed>
+    <p-button type="info" text>
       Info
     </p-button>
-    <p-button type="warning" dashed>
+    <p-button type="success" text>
+      Success
+    </p-button>
+    <p-button type="warning" text>
       Warning
     </p-button>
-    <p-button type="error" dashed>
+    <p-button type="error" text>
       Error
     </p-button>
   </div>

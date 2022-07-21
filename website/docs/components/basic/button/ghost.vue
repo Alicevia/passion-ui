@@ -9,6 +9,9 @@
     <p-button type="primary" ghost>
       Primary
     </p-button>
+    <p-button type="success" ghost>
+      Success
+    </p-button>
     <p-button type="info" ghost>
       Info
     </p-button>
