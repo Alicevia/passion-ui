@@ -1,7 +1,7 @@
 <template>
   <p-config-provider class="h-full bg-base">
     <!-- <ShapeButton></ShapeButton> -->
-    <p-message>21</p-message>
+    <p-message></p-message>
     <!-- <DisabledButton></DisabledButton> -->
   </p-config-provider>
 </template>

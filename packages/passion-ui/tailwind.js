@@ -129,6 +129,11 @@ module.exports = {
       },
       backgroundColor: {
         ...colors
+      },
+      boxShadow: {
+        shadow1: 'var(--box-shadow-1)',
+        shadow2: 'var(--box-shadow-2)',
+        shadow3: 'var(--box-shadow-3)'
       }
 
     }
