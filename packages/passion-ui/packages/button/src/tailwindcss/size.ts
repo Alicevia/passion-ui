@@ -16,7 +16,7 @@ export function sizeStyle ({ addComponents, theme }) {
       [`.${buttonPrefix}-${size}-round`]: {
         borderRadius: `calc(theme(height.${size}) / 2)`,
         minWidth: theme(`height.${size}`),
-        overFlow: 'hidden'
+        overflow: 'hidden'
       }
     })
     // circle
@@ -24,7 +24,7 @@ export function sizeStyle ({ addComponents, theme }) {
       [`.${buttonPrefix}-${size}-circle`]: {
         borderRadius: `calc(theme(height.${size}) / 2)`,
         maxWidth: theme(`height.${size}`),
-        overFlow: 'hidden'
+        overflow: 'hidden'
       }
     })
   })
