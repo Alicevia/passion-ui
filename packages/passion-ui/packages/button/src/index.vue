@@ -3,6 +3,8 @@
     :style="buttonCssVars"
     class="transition-all  leading-none border flex justify-center items-center box-border"
     :class="{
+      [roundClass]:round && !text,
+      [circleClass]:circle &&!text,
       [typeClass]:true,
       [sizeClass]:true,
       [ghostClass]:dashed||ghost,
@@ -45,6 +47,15 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+
+  round: {
+    type: Boolean,
+    default: false
+  },
+  circle: {
+    type: Boolean,
+    default: false
+  },
   text: {
     type: Boolean,
     default: false
@@ -78,6 +89,8 @@ const buttonCssVars = computed(() => {
 
 const typeClass = computed(createClass(type))
 const sizeClass = computed(createClass(size))
+const roundClass = computed(() => sizeClass.value + '-round')
+const circleClass = computed(() => sizeClass.value + '-circle')
 const ghostClass = computed(() => typeClass.value + '-ghost')
 const textClass = computed(() => typeClass.value + '-text')
 const disabledClass = computed(() => buttonPrefix + '-disabled')

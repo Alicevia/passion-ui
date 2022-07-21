@@ -42,3 +42,16 @@ basic/button/disabled
 ::: demo
 basic/button/text
 :::
+
+## 按钮形状
+`round` 胶囊一样的按钮  `circle` 圆形按钮 
+::: tip 方形按钮
+默认情况下是方形按钮最小宽度不会低于高度
+:::
+::: danger  
+当使用了`text` 属性的时候 形状不会生效
+:::
+::: demo
+basic/button/shape
+:::
+

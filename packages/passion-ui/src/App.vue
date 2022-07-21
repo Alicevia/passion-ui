@@ -1,6 +1,6 @@
 <template>
   <p-config-provider class=" h-full bg-base">
-    <TextButton></TextButton>
+    <ShapeButton></ShapeButton>
     <!-- <DisabledButton></DisabledButton> -->
   </p-config-provider>
 </template>
@@ -11,6 +11,7 @@ import GhostButton from 'website/basic/button/ghost.vue'
 import DashedButton from 'website/basic/button/dashed.vue'
 import TextButton from 'website/basic/button/text.vue'
 import DisabledButton from 'website/basic/button/disabled.vue'
+import ShapeButton from 'website/basic/button/shape.vue'
 
 </script>
 <style>
