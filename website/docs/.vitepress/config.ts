@@ -13,6 +13,9 @@ let config =  defineConfig({
   description: 'Passion UI是一个基于vue3开发的UI组件库,只尝试实现一些组件的功能,不推荐直接大范围应用在实际项目',
   themeConfig: {
     siteTitle: 'Passion UI',
+    socialLinks:[
+      { icon: 'github', link: 'https://github.com/Alicevia/passion-ui' },
+    ],
     nav: [
       { text: '首页', link: '/' },
       { text: '文档', link: '/guide/' },
