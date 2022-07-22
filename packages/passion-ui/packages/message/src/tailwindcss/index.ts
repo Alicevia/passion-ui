@@ -1,14 +1,11 @@
 
 import plugin from 'tailwindcss/plugin'
 import { messagePrefix } from '../constants'
+import { setMessageVars } from './vars'
 
 export function messageStyle ({ addComponents, theme }) {
   addComponents({
     [`.${messagePrefix}`]: {
-      // position: 'fixed',
-      // top: '30px',
-      // left: '50%',
-      // transform: 'translateX(-50%)',
       padding: '10px 20px',
       boxShadow: theme('boxShadow.shadow2'),
       backgroundColor: theme('colors.base.DEFAULT')
@@ -18,5 +15,5 @@ export function messageStyle ({ addComponents, theme }) {
 }
 
 export const messagePlugins = () => {
-  return [messageStyle].map(item => plugin(item))
+  return [messageStyle, setMessageVars].map(item => plugin(item))
 }

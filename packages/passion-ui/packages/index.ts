@@ -5,5 +5,6 @@ import './_store/theme/initBaseVars'
 
 export * from './components'
 export * from './_store'
+export * from './message/index'
 export { create }
 export default create({ components: Object.values(components) })
