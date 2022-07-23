@@ -27,4 +27,35 @@ export const messageIconsMap = messageTypeMap.reduce((pre, item) => {
   pre[item.type] = item.icon
   return pre
 }, {})
-export const messagePlacement = ['top', 'topLeft', 'topRight', 'bottom', 'bottomLeft', 'bottomRight']
+
+const messagePlacementMap = [
+  {
+    placement: 'top',
+    class: 'top-6 left-1/2 -translate-x-1/2 '
+  },
+  {
+    placement: 'topLeft',
+    class: 'top-6 left-6   '
+  },
+  {
+    placement: 'topRight',
+    class: 'top-6 right-6   '
+  },
+  {
+    placement: 'bottom',
+    class: 'bottom-6 left-1/2 -translate-x-1/2 '
+  },
+  {
+    placement: 'bottomLeft',
+    class: 'bottom-6 left-6'
+  },
+  {
+    placement: 'bottomRight',
+    class: 'bottom-6 right-6'
+  }
+]
+export const messagePlacements = messagePlacementMap.map(item => item.placement)
+export const messagePlacementClassMap = messagePlacementMap.reduce((pre, item) => {
+  pre[item.placement] = item.class + ' fixed flex flex-col items-center gap-4 z-[2022]'
+  return pre
+}, {})

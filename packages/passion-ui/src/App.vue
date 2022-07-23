@@ -13,7 +13,7 @@ import DashedButton from 'website/basic/button/dashed.vue'
 import TextButton from 'website/basic/button/text.vue'
 import DisabledButton from 'website/basic/button/disabled.vue'
 import ShapeButton from 'website/basic/button/shape.vue'
-import MessageBasic from 'website/feedback/message/basic.vue'
+import MessageBasic from 'website/feedback/message/duration.vue'
 
 </script>
 <style>

@@ -1,9 +1,7 @@
 import MessageComponent from './src/index.vue'
-import { messageTypes } from './src/constants'
+import { messageTypes, messagePlacementClassMap } from './src/constants'
 import { createApp } from 'vue'
-const containerMap = {
-
-}
+const containerMap = {}
 export const message = (options = {}) => {
   if (typeof options === 'string') {
     options = { content: options }
@@ -12,7 +10,7 @@ export const message = (options = {}) => {
   let container
   if (!containerMap[placement]) {
     container = document.createElement('div')
-    container.className = 'fixed top-6 left-1/2 -translate-x-1/2 flex flex-col gap-4 z-[2022]'
+    container.className = messagePlacementClassMap[placement]
   } else {
     container = containerMap[placement]
   }
@@ -30,7 +28,11 @@ export const message = (options = {}) => {
   })
   let temp = document.createElement('div')
   app.mount(temp)
-  container.appendChild(temp.firstElementChild)
+  if (placement.includes('top')) {
+    container.appendChild(temp.firstElementChild)
+  } else {
+    container.insertBefore(temp.firstElementChild, container.firstElementChild)
+  }
   temp = null
 
   if (!containerMap[placement]) {
