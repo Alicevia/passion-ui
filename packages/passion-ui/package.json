@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "@alicevia/utils": "workspace:^1.0.0",
-    "@vueuse/core": "^8.9.2",
     "animate.css": "^4.1.1",
     "modern-css-reset": "^1.4.0"
   }
