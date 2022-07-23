@@ -23,7 +23,7 @@ feedback/message/placement
 ## 显示时间控制
 
 ::: danger
-  `duration` 呈现时间 是从出现动画开始后开始计时
+  `duration` 呈现时间 是从出现动画结束后开始计时
 :::
 ::: tip
 `closable` 可以控制是否显示关闭按钮 
