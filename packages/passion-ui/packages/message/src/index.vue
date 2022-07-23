@@ -40,7 +40,6 @@ import { messageTypes, messagePrefix, messageIconsMap, messagePlacements } from 
 import { computed, watch, reactive, ref, toRefs } from 'vue'
 import { PIcon } from '../../icon'
 import { useElementHover, useCurrentElement } from '@vueuse/core'
-import durationVue from '../../../../../website/docs/components/feedback/message/duration.vue'
 const props = defineProps({
   id: {
     type: String,

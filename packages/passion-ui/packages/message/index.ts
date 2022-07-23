@@ -2,6 +2,7 @@ import MessageComponent from './src/index.vue'
 import { messageTypes, messagePlacementClassMap } from './src/constants'
 import { createApp } from 'vue'
 const containerMap = {}
+
 export const message = (options = {}) => {
   if (typeof options === 'string') {
     options = { content: options }
