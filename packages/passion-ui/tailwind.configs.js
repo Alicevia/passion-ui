@@ -2,7 +2,6 @@
 // import { typeStyle } from './packages/button/src/style/index.ts'
 // const plugin = require('tailwindcss/plugin')
 // const { typeStyle } = require('./packages/button/src/style/index.ts')
-// console.log(typeStyle)
 
 module.exports = {
   content: [

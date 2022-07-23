@@ -1,5 +1,4 @@
 const resolve = require('path').resolve
-console.log(resolve(__dirname, '../../website/docs/components/**/*.{vue,js,ts,jsx,tsx}'))
 const colors = {
   base: {
     DEFAULT: 'var(--base-color)'

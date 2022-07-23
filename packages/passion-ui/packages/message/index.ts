@@ -20,7 +20,6 @@ export const message = (options = {}) => {
     ...options,
     remove () {
       app.unmount()
-      console.log(containerMap[placement], containerMap[placement].childElementCount)
       if (containerMap[placement] && containerMap[placement].childElementCount == 0) {
         containerMap[placement].remove()
         delete containerMap[placement]
