@@ -39,6 +39,12 @@ let config =  defineConfig({
           ]
         },
         {
+          text: '反馈组件',
+          items: [
+            { text: 'Message', link: '/components/feedback/message/' },
+          ]
+        },
+        {
           text: '配置组件',
           items: [
             { text: 'ConfigProvider', link: '/components/configure/configProvider/' },

@@ -4,17 +4,15 @@ import { createApp } from 'vue'
 const containerMap = {
 
 }
-export const message = (msg, options = {}) => {
-  if (typeof msg === 'string') {
-    options.content = msg
-  } else {
-    Object.assign(options, msg)
+export const message = (options = {}) => {
+  if (typeof options === 'string') {
+    options = { content: options }
   }
   const { placement = 'top' } = options
   let container
   if (!containerMap[placement]) {
     container = document.createElement('div')
-    container.className = 'fixed top-6 left-1/2 -translate-x-1/2 flex flex-col gap-4'
+    container.className = 'fixed top-6 left-1/2 -translate-x-1/2 flex flex-col gap-4 z-[2022]'
   } else {
     container = containerMap[placement]
   }
@@ -43,7 +41,13 @@ export const message = (msg, options = {}) => {
 }
 
 messageTypes.forEach(type => {
-  message[type] = message
+  message[type] = (content, opt = {}) => {
+    message({
+      ...opt,
+      content,
+      type
+    })
+  }
 })
 
 export const useMessage = () => {

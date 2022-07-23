@@ -20,6 +20,7 @@
     "typescript": "~4.7.3"
   },
   "dependencies": {
+    "@iconify/vue": "^3.2.1",
     "vue": "^3.2.36"
   }
 }

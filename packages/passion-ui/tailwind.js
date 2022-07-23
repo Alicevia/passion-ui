@@ -75,7 +75,8 @@ module.exports = {
         small: 'var(--font-size-small)',
         medium: 'var(--font-size-medium)',
         large: 'var(--font-size-large)',
-        huge: 'var(--font-size-huge)'
+        huge: 'var(--font-size-huge)',
+        icon: 'var(--font-size-icon)'
       },
       padding: {
         mini: 'var(--padding-mini)',

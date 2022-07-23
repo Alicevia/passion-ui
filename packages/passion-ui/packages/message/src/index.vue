@@ -11,15 +11,28 @@
       :class="{
         [messagePrefix]:true
       }"
+      class="flex flex-row justify-between gap-2 items-center"
     >
-      {{ content }}
+      <slot name="icon">
+        <p-icon
+          :class="{
+            [typeClass]:true
+          }" :icon="messageIconsMap[type]"
+        ></p-icon>
+      </slot>
+      <div>
+        {{ content }}
+      </div>
+      <div>
+      </div>
     </div>
   </transition>
 </template>
 
 <script setup lang='ts'>
-import { messageTypes, messagePrefix, messagePlacement } from './constants'
-import { onMounted, reactive, ref } from 'vue'
+import { messageTypes, messagePrefix, messageIconsMap, messagePlacement } from './constants'
+import { computed, onMounted, reactive, ref, toRefs } from 'vue'
+import { PIcon } from '../../icon'
 const props = defineProps({
   id: {
     type: String,
@@ -46,14 +59,17 @@ const props = defineProps({
   },
   duration: {
     type: Number,
-    default: 12000
+    default: 112000
   },
   remove: Function
+})
+const { type } = toRefs(props)
+const typeClass = computed(() => {
+  return `${messagePrefix}-${type.value}`
 })
 
 const state = reactive({
   visible: true
-
 })
 // 进入完成 开启关闭定时器
 const onAfterEnter = () => {

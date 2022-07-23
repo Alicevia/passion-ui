@@ -1,9 +1,7 @@
 <template>
   <p-config-provider class="h-full bg-base">
     <!-- <ShapeButton></ShapeButton> -->
-    <p-button @click="handleClick">
-      sdf
-    </p-button>
+    <MessageBasic></MessageBasic>
     <!-- <DisabledButton></DisabledButton> -->
   </p-config-provider>
 </template>
@@ -15,11 +13,8 @@ import DashedButton from 'website/basic/button/dashed.vue'
 import TextButton from 'website/basic/button/text.vue'
 import DisabledButton from 'website/basic/button/disabled.vue'
 import ShapeButton from 'website/basic/button/shape.vue'
-import { message } from '../packages'
-const handleClick = () => {
-  message.success('xx')
-  console.log('x')
-}
+import MessageBasic from 'website/feedback/message/basic.vue'
+
 </script>
 <style>
 body,html,#app {

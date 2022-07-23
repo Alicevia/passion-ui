@@ -4,6 +4,7 @@ export function create ({ componentPrefix = 'P', components }) {
     install (app:App) {
       components.forEach(component => {
         const { name } = component
+        console.log(name)
         app.component(componentPrefix + name, component)
       })
     },
