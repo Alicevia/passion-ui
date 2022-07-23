@@ -59,7 +59,7 @@ const props = defineProps({
   },
   duration: {
     type: Number,
-    default: 112000
+    default: 3000
   },
   remove: Function
 })
