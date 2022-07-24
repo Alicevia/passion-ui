@@ -1,6 +1,5 @@
-import type { App } from 'vue'
 import { inject, provide, toRef, reactive } from 'vue'
-import OriginThemeVars from '../theme/initBaseVars'
+import OriginThemeVars from '../../theme/initBaseVars'
 import { toReactive } from '@vueuse/core'
 // 基础全局状态
 export const configProvideKey = Symbol('config-provide')

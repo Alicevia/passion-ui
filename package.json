@@ -22,7 +22,6 @@
   "dependencies": {
     "@iconify/vue": "^3.2.1",
     "@vueuse/core": "^8.9.4",
-    "vue": "^3.2.36"
+    "vue": "^3.2.37"
   }
-
 }

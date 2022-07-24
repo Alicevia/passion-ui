@@ -1,23 +1,19 @@
-import plugin from 'tailwindcss/plugin'
 import lightStyle from './lightStyle'
+import baseVars from './baseVars'
 import darkStyle from './darkStyle'
-import { useColorModeControl } from '../colorMode'
+import { useColorModeControl } from '../../../colorMode'
 import { reactive, computed } from 'vue'
 const { isDark } = useColorModeControl()
 
-const lightVars = ({ addComponents }) => {
+export const lightVars = ({ addComponents }) => {
   addComponents({
-    ':root': lightStyle
+    ':root': { ...lightStyle, ...baseVars }
   })
 }
-const darkVars = ({ addComponents }) => {
+export const darkVars = ({ addComponents }) => {
   addComponents({
     '.dark': darkStyle
   })
-}
-
-export const baseVarsPlugins = () => {
-  return [lightVars, darkVars].map(item => plugin(item))
 }
 
 // 放置在内存中

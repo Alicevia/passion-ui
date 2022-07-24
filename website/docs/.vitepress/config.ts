@@ -20,14 +20,6 @@ let config =  defineConfig({
       { text: '首页', link: '/' },
       { text: '文档', link: '/guide/' },
       { text: '组件', link: '/components/basic/button/' },
-      // {
-      //   text: 'Dropdown Menu',
-      //   items: [
-      //     { text: 'Item A', link: '/item-1' },
-      //     { text: 'Item B', link: '/item-2' },
-      //     { text: 'Item C', link: '/item-3' }
-      //   ]
-      // }
     ],
     sidebar:{
       '/components/': [
@@ -36,6 +28,12 @@ let config =  defineConfig({
           items: [
             { text: 'Button', link: '/components/basic/button/' },
             { text: 'Input', link:'/components/basic/input/' }
+          ]
+        },
+        {
+          text: '数据录入',
+          items: [
+            { text: 'Input', link: '/components/dataInput/input/' },
           ]
         },
         {

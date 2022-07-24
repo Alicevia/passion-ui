@@ -68,6 +68,9 @@ module.exports = {
         large: 'var(--height-large)',
         huge: 'var(--height-huge)'
       },
+      lineHeight: {
+        DEFAULT: 'var(--line-height)'
+      },
       fontSize: {
         mini: 'var(--font-size-mini)',
         tiny: 'var(--font-size-tiny)',
@@ -83,15 +86,15 @@ module.exports = {
         small: 'var(--padding-small)',
         medium: 'var(--padding-medium)',
         large: 'var(--padding-large)',
-        huge: 'var(--padding-huge)',
-        round: {
-          mini: 'var(--padding-round-mini)',
-          tiny: 'var(--padding-round-tiny)',
-          small: 'var(--padding-round-small)',
-          medium: 'var(--padding-round-medium)',
-          large: 'var(--padding-round-large)',
-          huge: 'var(--padding-round-huge)'
-        }
+        huge: 'var(--padding-huge)'
+        // round: {
+        //   mini: 'var(--padding-round-mini)',
+        //   tiny: 'var(--padding-round-tiny)',
+        //   small: 'var(--padding-round-small)',
+        //   medium: 'var(--padding-round-medium)',
+        //   large: 'var(--padding-round-large)',
+        //   huge: 'var(--padding-round-huge)'
+        // }
 
       },
       borderRadius: {
