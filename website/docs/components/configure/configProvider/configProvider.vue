@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-wrap gap-2">
     <p-config-provider class="bg-base" :theme-overrides="themeOverrides">
       <!-- <p-button type="primary" @click="toggle">
         toggle /{{ isDark?'dark':'light' }}
