@@ -1,7 +1,7 @@
 <template>
   <p-config-provider class="h-full bg-base">
-    <!-- <ShapeButton></ShapeButton> -->
-    <MyInput></MyInput>
+    <GhostButton></GhostButton>
+    <!-- <MyInput></MyInput> -->
 
     <!-- <DisabledButton></DisabledButton> -->
   </p-config-provider>
