@@ -1,20 +1,19 @@
 import { useColorMode, usePreferredColorScheme, useStorage } from '@vueuse/core'
 import { computed, watch } from 'vue'
+
 // 系统颜色
 const preferredColor = usePreferredColorScheme()
+// 本地存储的颜色
+const userColorModel = useStorage('passionUIColorMode', preferredColor.value)
 // 用户主题
 const colorMode = useColorMode({
   attribute: 'class',
   selector: 'html',
-  storageRef: useStorage('passionUIColorMode', preferredColor.value === 'no-preference' ? 'auto' : preferredColor.value),
+  storageRef: userColorModel,
   storageKey: null
 })
 watch(preferredColor, (v) => {
-  if (v === 'no-preference') {
-    colorMode.value = 'auto'
-  } else {
-    colorMode.value = v
-  }
+  colorMode.value = v
 })
 
 // 主题控制
