@@ -1,17 +1,18 @@
 <template>
   <div
     ref="containerRef"
-    :class="{
-      [basePrefix]:true,
-      [basePrefix+'-'+size]: true,
-      [inputPrefix]: true,
-      ['border-primary-focus']:focused
-    }"
-    class="border border-color rounded
+    class="border border-color
     transition-all duration-300 ease-in-out
     hover:border-primary-hover
     inline-flex items-center"
     tabindex="-1"
+    :class="{
+      [basePrefix]:true,
+      [inputPrefix]: true,
+      [sizeClass]: true,
+      [roundClass]: round,
+      ['border-primary-focus']:focused
+    }"
   >
     <slot name="prefix">
     </slot>
@@ -23,7 +24,7 @@
 
 <script setup lang="ts">
 import { useCurrentElement, onClickOutside, useFocus, useFocusWithin, useVModel } from '@vueuse/core'
-import { reactive, ref, watch } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { basePrefix, sizes } from '../../constants'
 import { inputPrefix } from './constants'
 
@@ -35,16 +36,24 @@ const props = defineProps({
       return sizes.includes(v)
     }
   },
+  round: {
+    type: Boolean,
+    default: false
+  },
   value: String
 })
 const emits = defineEmits(['update:value'])
 const containerRef = ref()
-
 const state = reactive({
-  isActive: false,
   value: useVModel(props, 'value', emits)
 })
-
+const roundClass = computed(() => {
+  return `${basePrefix}-${props.size}-round`
+})
+const sizeClass = computed(() => {
+  return `${basePrefix}-${props.size}`
+}
+)
 const { focused } = useFocusWithin(containerRef)
 
 </script>

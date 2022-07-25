@@ -10,6 +10,14 @@ export function baseSizeStyle ({ addComponents, theme }) {
         borderRadius: theme(`borderRadius.${size}`)
       }
     })
+    // round
+    addComponents({
+      [`.${basePrefix}-${size}-round`]: {
+        borderRadius: `calc(theme(height.${size}) / 2)`,
+        minWidth: theme(`height.${size}`),
+        overflow: 'hidden'
+      }
+    })
   })
   addComponents({
     [`.${basePrefix}`]: {

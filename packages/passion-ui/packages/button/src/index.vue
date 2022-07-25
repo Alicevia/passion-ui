@@ -21,6 +21,7 @@
 
 <script setup lang='ts'>
 import { toRefs, computed, unref } from 'vue'
+import { basePrefix } from '../../constants'
 import { useConfigProviderState, OriginThemeVars } from '../../_store'
 import { types, sizes, buttonPrefix } from './constants'
 
@@ -71,6 +72,8 @@ const props = defineProps({
 })
 
 const createClass = (k) => () => buttonPrefix + '-' + unref(k)
+const createBaseClass = (k) => () => basePrefix + '-' + unref(k)
+
 const { ButtonCssVars } = useConfigProviderState()
 const { type, size, ghost, dashed, text, disabled, buttonThemeOverride } = toRefs(props)
 const buttonCssVars = computed(() => {
@@ -88,8 +91,8 @@ const buttonCssVars = computed(() => {
 })
 
 const typeClass = computed(createClass(type))
-const sizeClass = computed(createClass(size))
-const roundClass = computed(() => sizeClass.value + '-round')
+const sizeClass = computed(createBaseClass(size))
+const roundClass = computed(() => basePrefix + '-' + size.value + '-round')
 const circleClass = computed(() => sizeClass.value + '-circle')
 const ghostClass = computed(() => typeClass.value + '-ghost')
 const textClass = computed(() => typeClass.value + '-text')

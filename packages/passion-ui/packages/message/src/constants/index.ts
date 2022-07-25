@@ -1,5 +1,5 @@
-import { createClassPrefix } from '../../../shared/classUtils'
-export const messagePrefix = createClassPrefix('message')
+import { createPrefix } from '../../../shared/classUtils'
+export const messagePrefix = createPrefix('message')
 export const messageTypeMap = [
   {
     type: 'success',

@@ -1,4 +1,4 @@
-import { createClassPrefix } from '../shared/classUtils'
+import { createPrefix } from '../shared/classUtils'
 
-export const basePrefix = createClassPrefix('base')
+export const basePrefix = createPrefix('base')
 export const sizes = ['mini', 'tiny', 'small', 'medium', 'large', 'huge']

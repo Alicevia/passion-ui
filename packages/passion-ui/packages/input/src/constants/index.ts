@@ -1,2 +1,2 @@
-import { createClassPrefix } from '../../../shared/classUtils'
-export const inputPrefix = createClassPrefix('input')
+import { createPrefix } from '../../../shared/classUtils'
+export const inputPrefix = createPrefix('input')

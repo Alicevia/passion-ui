@@ -1,9 +1,9 @@
 <template>
   <p-config-provider class="h-full bg-base">
-    <GhostButton></GhostButton>
-    <!-- <MyInput></MyInput> -->
-
-    <!-- <DisabledButton></DisabledButton> -->
+    <!-- <GhostButton></GhostButton> -->
+    <MyInput></MyInput>
+    <br>
+    <ShapeButton></ShapeButton>
   </p-config-provider>
 </template>
 
@@ -15,7 +15,7 @@ import TextButton from 'website/basic/button/text.vue'
 import DisabledButton from 'website/basic/button/disabled.vue'
 import ShapeButton from 'website/basic/button/shape.vue'
 import MessageBasic from 'website/feedback/message/duration.vue'
-import MyInput from 'website/dataInput/input/basic.vue'
+import MyInput from 'website/dataInput/input/round.vue'
 
 </script>
 <style>
