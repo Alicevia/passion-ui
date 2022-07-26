@@ -51,6 +51,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+
       colors: {
         ...colors,
         icon: {
@@ -113,6 +114,7 @@ module.exports = {
         opac4: 'var(--opacity-4)',
         opac5: 'var(--opacity-5)',
         disabled: 'var(--opacity-disabled)'
+
       },
       textColor: {
         DEFAULT: 'var(--text-color-base)',
@@ -141,6 +143,7 @@ module.exports = {
 
     }
   }
+
   // plugins: [
   //   // plugin(typeStyle)
   // ]

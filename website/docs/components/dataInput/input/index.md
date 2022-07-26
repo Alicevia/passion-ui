@@ -17,3 +17,10 @@ dataInput/input/basic
 ::: demo 
 dataInput/input/round
 :::
+
+
+## 可清除 clearable
+
+::: demo 
+dataInput/input/clearable
+:::
