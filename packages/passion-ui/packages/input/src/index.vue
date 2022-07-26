@@ -5,7 +5,8 @@
     class="group border border-color transition-all
     [&:not(.p-base-disabled):hover]:border-primary
     [&:not(.p-base-disabled):focus-within]:border-primary
-    inline-flex items-center w-full"
+   text-tc2
+    inline-flex items-center w-full gap-2"
     :class="{
       [basePrefix]:true,
       [inputPrefix]: true,
@@ -14,8 +15,11 @@
       [disabledClass]: disabled,
     }"
   >
-    <slot name="prefix">
-    </slot>
+    <div v-if="slots.prefix" class=" text-[16px] text-icon">
+      <slot name="prefix">
+      </slot>
+    </div>
+
     <div
       :class="{
         [inputPrefix+'_input']: true,
@@ -30,7 +34,7 @@
       <p-icon
         v-if="clearable && inputValue"
         icon="line-md:close"
-        class=" transition-all opacity-0 cursor-pointer"
+        class=" transition-all text-icon opacity-0 cursor-pointer"
         :class="{
           'opacity-100':focused ,
           'group-hover:opacity-100':!disabled
@@ -38,8 +42,11 @@
         @click="onClear"
       ></p-icon>
     </div>
-    <slot name="suffix">
-    </slot>
+    <div v-if="slots.suffix" class=" text-icon">
+      <slot name="suffix">
+      </slot>
+    </div>
+
     <p-icon
       v-if="loading"
       icon="line-md:loading-loop"
@@ -48,8 +55,8 @@
 </template>
 
 <script setup lang="ts">
-import { useCurrentElement, onClickOutside, useFocus, useFocusWithin, useVModel } from '@vueuse/core'
-import { computed, reactive, ref, watch, watchEffect } from 'vue'
+import { useFocus } from '@vueuse/core'
+import { computed, reactive, ref, useSlots, watch, watchEffect } from 'vue'
 import { basePrefix, sizes } from '../../constants'
 import { inputPrefix } from './constants'
 import { PIcon } from '../../icon'
@@ -87,6 +94,8 @@ const props = defineProps({
   }
 
 })
+const slots = useSlots()
+console.log(slots)
 
 const emits = defineEmits(['update:value', 'input', 'clear'])
 const containerRef = ref()

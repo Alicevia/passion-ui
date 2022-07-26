@@ -36,3 +36,9 @@ dataInput/input/loading
 ::: demo 
 dataInput/input/disabled
 :::
+
+## 前缀与后缀
+
+::: demo 
+dataInput/input/prefix
+:::

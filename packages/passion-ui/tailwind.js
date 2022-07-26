@@ -33,7 +33,14 @@ const colors = {
     hover: 'var(--error-color-hover)',
     active: 'var(--error-color-pressed)',
     focus: 'var(--error-color-hover)'
+  },
+  icon: {
+    DEFAULT: 'rgba(194, 194, 194, 1)',
+    hover: 'rgba(146, 146, 146, 1)',
+    active: 'rgba(175, 175, 175, 1)',
+    disabled: 'rgba(209, 209, 209, 1)'
   }
+
 }
 module.exports = {
   content: [
@@ -88,15 +95,6 @@ module.exports = {
         medium: 'var(--padding-medium)',
         large: 'var(--padding-large)',
         huge: 'var(--padding-huge)'
-        // round: {
-        //   mini: 'var(--padding-round-mini)',
-        //   tiny: 'var(--padding-round-tiny)',
-        //   small: 'var(--padding-round-small)',
-        //   medium: 'var(--padding-round-medium)',
-        //   large: 'var(--padding-round-large)',
-        //   huge: 'var(--padding-round-huge)'
-        // }
-
       },
       borderRadius: {
         DEFAULT: 'var(--border-radius)',
