@@ -24,3 +24,15 @@ dataInput/input/round
 ::: demo 
 dataInput/input/clearable
 :::
+
+## 加载中 loading
+
+::: demo 
+dataInput/input/loading
+:::
+
+## 禁用 disabled
+
+::: demo 
+dataInput/input/disabled
+:::

@@ -2,17 +2,16 @@
   <div
     ref="containerRef"
     tabindex="-1"
-    class="border border-color
-    transition-all
-    hover:border-primary-hover
-    group
+    class="group border border-color transition-all
+    [&:not(.p-base-disabled):hover]:border-primary
+    [&:not(.p-base-disabled):focus-within]:border-primary
     inline-flex items-center w-full"
     :class="{
       [basePrefix]:true,
       [inputPrefix]: true,
       [sizeClass]: true,
       [roundClass]: round,
-      ['border-primary-focus']:focused
+      [disabledClass]: disabled,
     }"
   >
     <slot name="prefix">
@@ -25,16 +24,16 @@
     >
       <input
         ref="inputRef" v-model="inputValue" :placeholder="placeholder"
-        class="outline-none flex-1" type="text"
+        class="outline-none disabled:p-base-disabled flex-1" type="text" :disabled="disabled"
       >
 
       <p-icon
         v-if="clearable && inputValue"
         icon="line-md:close"
-        class=" transition-all opacity-0 cursor-pointer
-        group-hover:opacity-100"
+        class=" transition-all opacity-0 cursor-pointer"
         :class="{
-          'opacity-100':focused
+          'opacity-100':focused ,
+          'group-hover:opacity-100':!disabled
         }"
         @click="onClear"
       ></p-icon>
@@ -63,6 +62,10 @@ const props = defineProps({
       return sizes.includes(v)
     }
   },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
   loading: {
     type: Boolean,
     default: false
@@ -87,6 +90,7 @@ const props = defineProps({
 
 const emits = defineEmits(['update:value', 'input', 'clear'])
 const containerRef = ref()
+const inputRef = ref()
 const text = ref()
 
 const inputValue = computed({
@@ -110,7 +114,8 @@ const onClear = () => {
   emits('clear', inputValue.value)
   inputValue.value = undefined
 }
-const { focused } = useFocusWithin(containerRef)
+const { focused } = useFocus(inputRef)
+const disabledClass = computed(() => basePrefix + '-disabled')
 
 </script>
 <script lang="ts">

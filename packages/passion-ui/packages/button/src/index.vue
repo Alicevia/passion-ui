@@ -96,7 +96,7 @@ const roundClass = computed(() => basePrefix + '-' + size.value + '-round')
 const circleClass = computed(() => sizeClass.value + '-circle')
 const ghostClass = computed(() => typeClass.value + '-ghost')
 const textClass = computed(() => typeClass.value + '-text')
-const disabledClass = computed(() => buttonPrefix + '-disabled')
+const disabledClass = computed(() => basePrefix + '-disabled')
 
 </script>
 <script  lang='ts'>
