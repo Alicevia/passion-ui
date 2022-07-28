@@ -5,7 +5,7 @@
     class="group border border-color transition-all
     [&:not(.p-base-disabled):hover]:border-primary
     [&:not(.p-base-disabled):focus-within]:border-primary
-   text-tc2
+    text-tc2
     inline-flex items-center w-full gap-2"
     :class="{
       [basePrefix]:true,
@@ -27,8 +27,8 @@
       class="flex-1 flex items-center"
     >
       <input
-        ref="inputRef" v-model="inputValue" :placeholder="placeholder"
-        class="outline-none disabled:p-base-disabled flex-1" type="text" :disabled="disabled"
+        ref="inputRef" v-bind="$attrs" v-model="inputValue" :placeholder="placeholder" class="outline-none disabled:p-base-disabled flex-1"
+        type="text" :disabled="disabled" @change="onChange"
       >
 
       <p-icon
@@ -36,7 +36,7 @@
         icon="line-md:close"
         class=" transition-all text-icon opacity-0 cursor-pointer"
         :class="{
-          'opacity-100':focused ,
+          'opacity-100':focused,
           'group-hover:opacity-100':!disabled
         }"
         @click="onClear"
@@ -97,7 +97,7 @@ const props = defineProps({
 const slots = useSlots()
 console.log(slots)
 
-const emits = defineEmits(['update:value', 'input', 'clear'])
+const emits = defineEmits(['update:value', 'input', 'change', 'clear'])
 const containerRef = ref()
 const inputRef = ref()
 const text = ref()
@@ -119,6 +119,10 @@ const roundClass = computed(() => {
 const sizeClass = computed(() => {
   return `${basePrefix}-${props.size}`
 })
+
+const onChange = (e) => {
+  emits('change', inputValue.value, e)
+}
 const onClear = () => {
   emits('clear', inputValue.value)
   inputValue.value = undefined

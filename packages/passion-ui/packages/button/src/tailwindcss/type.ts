@@ -1,51 +1,44 @@
+import { basePrefix } from '../../../constants'
 import { types, buttonPrefix } from '../constants'
 
 export function typeStyle ({ addComponents, theme }) {
-  addComponents({
-    [`.${buttonPrefix}-default`]: {
-      color: theme('textColor.tc2'),
-      backgroundColor: theme('colors.transparent'),
-      border: `1px solid ${theme('borderColor.DEFAULT')}`,
-      [`&:not(.${buttonPrefix}-disabled):hover`]: {
-        'border-color': theme('borderColor.primary.DEFAULT')
-      },
-      [`&:not(.${buttonPrefix}-disabled):focus`]: {
-        'border-color': theme('borderColor.primary.DEFAULT')
-      },
-      [`&:not(.${buttonPrefix}-disabled):active`]: {
-        'border-color': theme('borderColor.primary.active')
+  types.slice(0, 2).forEach(type => {
+    addComponents({
+      [`.${buttonPrefix}-${type}`]: {
+        color: type === 'default' ? theme('textColor.tc2') : theme('textColor.tc3'),
+        backgroundColor: theme('colors.transparent'),
+        border: `1px solid ${theme('borderColor.DEFAULT')}`,
+        [`&:not(.${basePrefix}-disabled):hover`]: {
+          'border-color': theme('borderColor.primary.hover'),
+          color: theme('textColor.primary.hover')
+        },
+        [`&:not(.${basePrefix}-disabled):focus`]: {
+          'border-color': theme('borderColor.primary.focus'),
+          color: theme('textColor.primary.focus')
+
+        },
+        [`&:not(.${basePrefix}-disabled):active`]: {
+          'border-color': theme('borderColor.primary.active'),
+          color: theme('textColor.primary.active')
+
+        }
       }
-    }
+    })
   })
-  addComponents({
-    [`.${buttonPrefix}-tertiary`]: {
-      color: theme('textColor.tc3'),
-      backgroundColor: theme('colors.transparent'),
-      border: `1px solid ${theme('borderColor.DEFAULT')}`,
-      [`&:not(.${buttonPrefix}-disabled):hover`]: {
-        'border-color': theme('borderColor.primary.DEFAULT')
-      },
-      [`&:not(.${buttonPrefix}-disabled):focus`]: {
-        'border-color': theme('borderColor.primary.DEFAULT')
-      },
-      [`&:not(.${buttonPrefix}-disabled):active`]: {
-        'border-color': theme('borderColor.primary.active')
-      }
-    }
-  })
+
   types.slice(2).forEach(type => {
     addComponents({
       [`.${buttonPrefix}-${type}`]: {
         color: theme('textColor.base.DEFAULT'),
         backgroundColor: theme(`backgroundColor.${type}.DEFAULT`),
         border: 'none',
-        [`&:not(.${buttonPrefix}-disabled):hover`]: {
+        [`&:not(.${basePrefix}-disabled):hover`]: {
           backgroundColor: theme(`backgroundColor.${type}.hover`)
         },
-        [`&:not(.${buttonPrefix}-disabled):focus`]: {
+        [`&:not(.${basePrefix}-disabled):focus`]: {
           backgroundColor: theme(`backgroundColor.${type}.focus`)
         },
-        [`&:not(.${buttonPrefix}-disabled):active`]: {
+        [`&:not(.${basePrefix}-disabled):active`]: {
           backgroundColor: theme(`backgroundColor.${type}.active`)
         }
       }
@@ -58,17 +51,17 @@ export function typeStyle ({ addComponents, theme }) {
         borderWidth: '1px',
         borderStyle: 'solid',
         borderColor: theme(`borderColor.${type}.DEFAULT`),
-        [`&:not(.${buttonPrefix}-disabled):hover`]: {
+        [`&:not(.${basePrefix}-disabled):hover`]: {
           borderColor: theme(`borderColor.${type}.hover`),
           color: theme(`colors.${type}.hover`),
           backgroundColor: 'unset'
         },
-        [`&:not(.${buttonPrefix}-disabled):focus`]: {
+        [`&:not(.${basePrefix}-disabled):focus`]: {
           borderColor: theme(`borderColor.${type}.focus`),
           color: theme(`colors.${type}.focus`),
           backgroundColor: 'unset'
         },
-        [`&:not(.${buttonPrefix}-disabled):active`]: {
+        [`&:not(.${basePrefix}-disabled):active`]: {
           borderColor: theme(`borderColor.${type}.active`),
           color: theme(`colors.${type}.active`),
           backgroundColor: 'unset'
@@ -82,17 +75,17 @@ export function typeStyle ({ addComponents, theme }) {
         backgroundColor: 'unset',
         border: 'none',
         padding: '0',
-        [`&:not(.${buttonPrefix}-disabled):hover`]: {
+        [`&:not(.${basePrefix}-disabled):hover`]: {
           backgroundColor: 'unset',
           color: theme(`colors.${type}.hover`)
 
         },
-        [`&:not(.${buttonPrefix}-disabled):focus`]: {
+        [`&:not(.${basePrefix}-disabled):focus`]: {
           backgroundColor: 'unset',
           color: theme(`colors.${type}.focus`)
 
         },
-        [`&:not(.${buttonPrefix}-disabled):active`]: {
+        [`&:not(.${basePrefix}-disabled):active`]: {
           backgroundColor: 'unset',
           color: theme(`colors.${type}.active`)
 

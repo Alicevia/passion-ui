@@ -24,4 +24,10 @@ export function baseSizeStyle ({ addComponents, theme }) {
       lineHeight: theme('lineHeight.DEFAULT')
     }
   })
+  addComponents({
+    [`.${basePrefix}-disabled`]: {
+      cursor: 'not-allowed',
+      opacity: theme('opacity.disabled')
+    }
+  })
 }

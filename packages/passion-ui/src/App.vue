@@ -1,9 +1,11 @@
 <template>
   <p-config-provider class="h-full bg-base">
     <!-- <GhostButton></GhostButton> -->
-    <MyInput></MyInput>
-    <br>
-    <!-- <ShapeButton></ShapeButton> -->
+    <p-form class=" w-96">
+      <p-form-item>
+        <p-input></p-input>
+      </p-form-item>
+    </p-form>
   </p-config-provider>
 </template>
 
@@ -16,7 +18,10 @@ import DisabledButton from 'website/basic/button/disabled.vue'
 import ShapeButton from 'website/basic/button/shape.vue'
 import MessageBasic from 'website/feedback/message/duration.vue'
 import MyInput from 'website/dataInput/input/prefix.vue'
-
+import { message } from '../packages'
+const handleClick = (e, a) => {
+  console.log(e, a)
+}
 </script>
 <style>
 body,html,#app {

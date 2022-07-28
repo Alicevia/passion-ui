@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-2 flex-wrap">
-    <p-input v-model:value="value" loading clearable placeholder="disabled 状态">
+    <p-input v-model:value="value" disabled loading clearable placeholder="disabled 状态">
       <template #prefix>
         <p-icon icon="line-md:search"></p-icon>
       </template>
