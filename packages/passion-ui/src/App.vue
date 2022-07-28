@@ -1,8 +1,11 @@
 <template>
-  <p-config-provider class="h-full bg-base">
+  <p-config-provider class="h-full bg-base flex  justify-center items-center">
     <!-- <GhostButton></GhostButton> -->
-    <p-form class=" w-96">
-      <p-form-item>
+    <p-form class=" w-96 ">
+      <p-form-item label-align="right" :label-style="{width:'100px'}" label-width="100" label="用户名">
+        <p-input></p-input>
+      </p-form-item>
+      <p-form-item label-align="right" :label-style="{width:'100px'}" label-width="100" label="密 码">
         <p-input></p-input>
       </p-form-item>
     </p-form>

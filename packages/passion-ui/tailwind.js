@@ -42,6 +42,14 @@ const colors = {
   }
 
 }
+const height = {
+  mini: 'var(--height-mini)',
+  tiny: 'var(--height-tiny)',
+  small: 'var(--height-small)',
+  medium: 'var(--height-medium)',
+  large: 'var(--height-large)',
+  huge: 'var(--height-huge)'
+}
 module.exports = {
   content: [
     './index.html',
@@ -68,16 +76,10 @@ module.exports = {
           disabled: 'var(--icon-color-disabled)'
         }
       },
-      height: {
-        mini: 'var(--height-mini)',
-        tiny: 'var(--height-tiny)',
-        small: 'var(--height-small)',
-        medium: 'var(--height-medium)',
-        large: 'var(--height-large)',
-        huge: 'var(--height-huge)'
-      },
+      height,
       lineHeight: {
-        DEFAULT: 'var(--line-height)'
+        DEFAULT: 'var(--line-height)',
+        ...height
       },
       fontSize: {
         mini: 'var(--font-size-mini)',

@@ -21,7 +21,7 @@ export function baseSizeStyle ({ addComponents, theme }) {
   })
   addComponents({
     [`.${basePrefix}`]: {
-      lineHeight: theme('lineHeight.DEFAULT')
+      lineHeight: 1
     }
   })
   addComponents({
