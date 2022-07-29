@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang='ts'>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 const props = defineProps({
   label: {
     type: String,
@@ -53,12 +53,6 @@ const props = defineProps({
 })
 
 const isShowError = ref(false)
-setTimeout(() => {
-  isShowError.value = true
-  setTimeout(() => {
-    isShowError.value = false
-  }, 2000)
-}, 2000)
 
 </script>
 <script  lang='ts'>

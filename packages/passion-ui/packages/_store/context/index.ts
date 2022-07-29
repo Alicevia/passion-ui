@@ -1,6 +1,7 @@
 import { inject, provide, toRef, reactive } from 'vue'
 import OriginThemeVars from '../../theme/initBaseVars'
 import { toReactive } from '@vueuse/core'
+export * from './form'
 // 基础全局状态
 export const configProvideKey = Symbol('config-provide')
 // 合并用户主题和默认主题

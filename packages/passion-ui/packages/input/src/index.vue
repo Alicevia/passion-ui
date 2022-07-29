@@ -56,12 +56,13 @@
 
 <script setup lang="ts">
 import { useFocus } from '@vueuse/core'
-import { computed, reactive, ref, useSlots, watch, watchEffect } from 'vue'
+import { computed, reactive, ref, toRefs, useSlots, watch, watchEffect } from 'vue'
 import { basePrefix, sizes } from '../../constants'
 import { inputPrefix } from './constants'
 import { PIcon } from '../../icon'
+import { useFormProviderState } from '../../_store'
 
-const props = defineProps({
+const _props = defineProps({
   size: {
     type: String,
     default: 'medium',
@@ -94,9 +95,12 @@ const props = defineProps({
   }
 
 })
+const props = useFormProviderState(_props)
+console.log(props.size)
+watch(() => props.size, (e) => {
+  console.log('input', e)
+})
 const slots = useSlots()
-console.log(slots)
-
 const emits = defineEmits(['update:value', 'input', 'change', 'clear'])
 const containerRef = ref()
 const inputRef = ref()
