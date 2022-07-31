@@ -50,6 +50,24 @@ const height = {
   large: 'var(--height-large)',
   huge: 'var(--height-huge)'
 }
+const fontSize = {
+  mini: 'var(--font-size-mini)',
+  tiny: 'var(--font-size-tiny)',
+  small: 'var(--font-size-small)',
+  medium: 'var(--font-size-medium)',
+  large: 'var(--font-size-large)',
+  huge: 'var(--font-size-huge)',
+  icon: 'var(--font-size-icon)'
+}
+const padding = {
+  mini: 'var(--padding-mini)',
+  tiny: 'var(--padding-tiny)',
+  small: 'var(--padding-small)',
+  medium: 'var(--padding-medium)',
+  large: 'var(--padding-large)',
+  huge: 'var(--padding-huge)'
+}
+
 module.exports = {
   content: [
     './index.html',
@@ -59,6 +77,10 @@ module.exports = {
     resolve(__dirname, '../../website/docs/components/**/*.{vue,js,ts,jsx,tsx}')
   ],
   safelist: [
+    {
+      pattern: /(h|text|p)-(mini|tiny|small|medium|large|huge)/
+      // variants: ['lg', 'hover', 'focus', 'lg:hover'],
+    },
     {
       pattern: /p-.+/
       // variants: ['lg', 'hover', 'focus', 'lg:hover'],
@@ -81,23 +103,8 @@ module.exports = {
         DEFAULT: 'var(--line-height)',
         ...height
       },
-      fontSize: {
-        mini: 'var(--font-size-mini)',
-        tiny: 'var(--font-size-tiny)',
-        small: 'var(--font-size-small)',
-        medium: 'var(--font-size-medium)',
-        large: 'var(--font-size-large)',
-        huge: 'var(--font-size-huge)',
-        icon: 'var(--font-size-icon)'
-      },
-      padding: {
-        mini: 'var(--padding-mini)',
-        tiny: 'var(--padding-tiny)',
-        small: 'var(--padding-small)',
-        medium: 'var(--padding-medium)',
-        large: 'var(--padding-large)',
-        huge: 'var(--padding-huge)'
-      },
+      fontSize,
+      padding,
       borderRadius: {
         DEFAULT: 'var(--border-radius)',
         mini: 'var(--border-radius-mini)',

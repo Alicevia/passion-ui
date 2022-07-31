@@ -55,25 +55,14 @@
 </template>
 
 <script setup lang="ts">
-import { useFocus } from '@vueuse/core'
-import { computed, reactive, ref, toRefs, useSlots, watch, watchEffect } from 'vue'
-import { basePrefix, sizes } from '../../constants'
+import { refDefault, useFocus } from '@vueuse/core'
+import { computed, ref, toRef, useSlots } from 'vue'
+import { basePrefix, extendBaseProps } from '../../constants'
 import { inputPrefix } from './constants'
 import { PIcon } from '../../icon'
 import { useFormProviderState } from '../../_store'
-
-const _props = defineProps({
-  size: {
-    type: String,
-    default: 'medium',
-    validator: (v:string) => {
-      return sizes.includes(v)
-    }
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
+const slots = useSlots()
+const _props = defineProps(extendBaseProps({
   loading: {
     type: Boolean,
     default: false
@@ -93,14 +82,12 @@ const _props = defineProps({
   value: {
     type: String
   }
-
-})
+}))
 const props = useFormProviderState(_props)
-console.log(props.size)
-watch(() => props.size, (e) => {
-  console.log('input', e)
-})
-const slots = useSlots()
+
+const size = refDefault(toRef(props, 'size'), 'medium')
+const disabled = refDefault(toRef(props, 'disabled'), false)
+
 const emits = defineEmits(['update:value', 'input', 'change', 'clear'])
 const containerRef = ref()
 const inputRef = ref()
@@ -118,10 +105,10 @@ const inputValue = computed({
 })
 
 const roundClass = computed(() => {
-  return `${basePrefix}-${props.size}-round`
+  return `${basePrefix}-${size.value}-round`
 })
 const sizeClass = computed(() => {
-  return `${basePrefix}-${props.size}`
+  return `${inputPrefix}-${size.value}`
 })
 
 const onChange = (e) => {

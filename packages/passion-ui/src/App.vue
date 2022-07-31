@@ -1,21 +1,29 @@
 <template>
-  <p-config-provider class="h-full bg-base flex  justify-center items-center">
+  <p-config-provider class="h-full bg-base flex  flex-col ">
     <!-- <GhostButton></GhostButton> -->
-    <div class="flex items-center gap-3 flex-col">
-      <div class="flex gap-2 mt-3">
-        <p-button v-for="item in sizes" :key="item" @click="handleClick(item)">
-          {{ item }}
-        </p-button>
-      </div>
-      <p-form class=" w-96 " :size="size">
-        <p-form-item label-align="right" :label-style="{width:'100px'}" label-width="100" label="用户名">
-          <p-input></p-input>
-        </p-form-item>
-        <p-form-item label-align="right" :label-style="{width:'100px'}" label-width="100" label="密 码">
-          <p-input></p-input>
-        </p-form-item>
-      </p-form>
+    <div class="flex items-center gap-2 m-3">
+      <span>大小：</span>
+      <p-button v-for="item in sizes" :key="item" @click="handleClick(item)">
+        {{ item }}
+      </p-button>
     </div>
+    <div class="flex items-center gap-2 m-3">
+      <span>禁用/启用：</span>
+      <p-button @click="disabled=true">
+        禁用
+      </p-button>
+      <p-button @click="disabled=false">
+        启用
+      </p-button>
+    </div>
+    <p-form class=" w-96 " :label-width="labelWidth" :size="size" :disabled="disabled">
+      <p-form-item label-align="right" label="用户名">
+        <p-input></p-input>
+      </p-form-item>
+      <p-form-item label-align="right" label="密 码">
+        <p-input></p-input>
+      </p-form-item>
+    </p-form>
   </p-config-provider>
 </template>
 
@@ -29,11 +37,14 @@ import ShapeButton from 'website/basic/button/shape.vue'
 import MessageBasic from 'website/feedback/message/duration.vue'
 import MyInput from 'website/dataInput/input/prefix.vue'
 import { message } from '../packages'
-const sizes = ['medium', 'small', 'mini']
+import { sizes } from '../packages/constants'
+const labelWidth = ref(100)
 const size = ref('medium')
+const disabled = ref(false)
 const handleClick = (e) => {
   size.value = e
 }
+
 </script>
 <style>
 body,html,#app {

@@ -4,5 +4,6 @@ import 'animate.css'
 import { CommonCssVars } from './tailwindcss/plugins/themeVars'
 import { ButtonCssVars } from '../button/src/tailwindcss/index'
 import { InputCssVars } from '../input/src/tailwindcss/index'
+import { FormCssVars } from '../form/src/tailwindcss/index'
 
-export default reactive({ CommonCssVars, ButtonCssVars, InputCssVars })
+export default reactive({ CommonCssVars, ButtonCssVars, InputCssVars, FormCssVars })

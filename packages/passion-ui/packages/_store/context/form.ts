@@ -1,18 +1,20 @@
-import { inject, reactive, provide, toRefs, watch } from 'vue'
+import { refDefault, resolveUnref } from '@vueuse/core'
+import { inject, reactive, provide, toRefs, ref, computed } from 'vue'
 const formProvideKey = Symbol('form')
 
 export const createFormProviderState = (formState) => {
-  provide(formProvideKey, formState)
+  const preFormState = useFormProviderState(formState)
+
+  provide(formProvideKey, preFormState)
+
+  return preFormState
 }
 
-export const useFormProviderState = (_props) => {
-  console.log(_props)
-  const formState = inject(formProvideKey, reactive({}))
-  const mergedProps = reactive({
-
-    ...formState,
-    ...toRefs(_props)
-  })
-
-  return mergedProps
+export const useFormProviderState = (props) => {
+  const newProps = reactive(toRefs(props))
+  const preState = inject(formProvideKey, reactive({}))
+  for (const key in preState) {
+    newProps[key] = computed(() => props[key] ?? preState[key])
+  }
+  return newProps
 }

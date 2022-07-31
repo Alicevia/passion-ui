@@ -3,11 +3,8 @@ export function baseSizeStyle ({ addComponents, theme }) {
   sizes.forEach(size => {
     addComponents({
       [`.${basePrefix}-${size}`]: {
-        minWidth: theme(`height.${size}`),
         height: theme(`height.${size}`),
-        fontSize: theme(`fontSize.${size}`),
-        padding: theme(`padding.${size}`),
-        borderRadius: theme(`borderRadius.${size}`)
+        fontSize: theme(`fontSize.${size}`)
       }
     })
     // round

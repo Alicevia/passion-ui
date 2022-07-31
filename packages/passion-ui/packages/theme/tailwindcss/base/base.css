@@ -1,1 +1,7 @@
 @tailwind base;
+
+@layer components {
+  body {
+    line-height: 1 !important;
+  }
+}

@@ -1,14 +1,17 @@
 <template>
   <div
-    class="grid grid-rows-2 grid-cols-[auto_1fr] gap-x-3 text-medium"
+    class="grid grid-rows-[auto_auto] mb-2 grid-cols-[auto_1fr]"
   >
     <label
-      :style="labelStyle"
+      :style="style"
       :class="{
         'text-left':labelAlign === 'left',
         'text-right':labelAlign === 'right',
+        [`h-${size}`]:true,
+        [`text-${size}`]:true,
+        [`p-${size}`]:true
       }"
-      class="row-span-2 h-medium leading-medium"
+      class="row-span-2  flex items-center justify-end"
     >
       <slot name="label">
         {{ label }}
@@ -32,27 +35,35 @@
 </template>
 
 <script setup lang='ts'>
-import { ref } from 'vue'
-const props = defineProps({
+import { computed, ref, toRef, toRefs } from 'vue'
+import { createFormProviderState } from '../../_store'
+import { basePrefix, extendFormProps } from '../../constants'
+import { formItemPrefix } from './constants'
+import { refDefault } from '@vueuse/core'
+
+const props = defineProps(extendFormProps({
   label: {
     type: String,
     default: ''
-  },
-  labelStyle: {
-    type: Object,
-    default: () => ({})
-  },
-  labelWidth: {
-    type: [String, Number],
-    default: 'auto'
-  },
-  labelAlign: {
-    type: String,
-    default: 'left'
+  }
+}))
+const formItemState = createFormProviderState(props)
+const { size } = toRefs(formItemState)
+const labelStyle = refDefault(toRef(formItemState, 'labelStyle'), {})
+
+const style = computed(() => {
+  if (formItemState.labelWidth) {
+    return {
+      ...labelStyle.value,
+      width: formItemState.labelWidth + 'px'
+
+    }
+  } else {
+    return labelStyle.value
   }
 })
 
-const isShowError = ref(false)
+const isShowError = ref(true)
 
 </script>
 <script  lang='ts'>

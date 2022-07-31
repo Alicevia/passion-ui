@@ -20,24 +20,18 @@
 </template>
 
 <script setup lang='ts'>
-import { toRefs, computed, unref } from 'vue'
-import { basePrefix } from '../../constants'
-import { useConfigProviderState, OriginThemeVars } from '../../_store'
-import { types, sizes, buttonPrefix } from './constants'
+import { refDefault } from '@vueuse/core'
+import { toRefs, computed, unref, toRef } from 'vue'
+import { basePrefix, extendBaseProps } from '../../constants'
+import { useConfigProviderState, OriginThemeVars, useFormProviderState } from '../../_store'
+import { types, buttonPrefix } from './constants'
 
-const props = defineProps({
+const _props = defineProps(extendBaseProps({
   type: {
     type: String,
     default: 'default',
     validator (value: string) {
       return types.includes(value)
-    }
-  },
-  size: {
-    type: String,
-    default: 'medium',
-    validator (value: string) {
-      return sizes.includes(value)
     }
   },
   ghost: {
@@ -61,21 +55,17 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
+
   buttonThemeOverride: {
     type: Object,
     default: () => ({})
   }
-})
-
-const createClass = (k) => () => buttonPrefix + '-' + unref(k)
-const createBaseClass = (k) => () => basePrefix + '-' + unref(k)
+}))
+const props = useFormProviderState(_props)
 
 const { ButtonCssVars } = useConfigProviderState()
-const { type, size, ghost, dashed, text, disabled, buttonThemeOverride } = toRefs(props)
+const { type, ghost, dashed, text, disabled, buttonThemeOverride } = toRefs(props)
+const size = refDefault(toRef(props, 'size'), 'medium')
 const buttonCssVars = computed(() => {
   if (buttonThemeOverride.value) {
     return {
@@ -90,13 +80,13 @@ const buttonCssVars = computed(() => {
   }
 })
 
-const typeClass = computed(createClass(type))
-const sizeClass = computed(createBaseClass(size))
+const typeClass = computed(() => buttonPrefix + '-' + unref(type))
+const sizeClass = computed(() => buttonPrefix + '-' + unref(size))
 const roundClass = computed(() => basePrefix + '-' + size.value + '-round')
 const circleClass = computed(() => sizeClass.value + '-circle')
 const ghostClass = computed(() => typeClass.value + '-ghost')
 const textClass = computed(() => typeClass.value + '-text')
-const disabledClass = computed(() => basePrefix + '-disabled')
+const disabledClass = computed(() => buttonPrefix + '-disabled')
 
 </script>
 <script  lang='ts'>
