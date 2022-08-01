@@ -54,31 +54,15 @@ const _props = defineProps(extendBaseProps({
   text: {
     type: Boolean,
     default: false
-  },
-
-  buttonThemeOverride: {
-    type: Object,
-    default: () => ({})
   }
+
 }))
 const props = useFormProviderState(_props)
 
-const { ButtonCssVars } = useConfigProviderState()
-const { type, ghost, dashed, text, disabled, buttonThemeOverride } = toRefs(props)
+const { type, ghost, dashed, text, disabled, themeOverride } = toRefs(props)
+const buttonCssVars = useConfigProviderState(themeOverride, 'Button')
+
 const size = refDefault(toRef(props, 'size'), 'medium')
-const buttonCssVars = computed(() => {
-  if (buttonThemeOverride.value) {
-    return {
-      ...ButtonCssVars,
-      ...buttonThemeOverride.value
-    }
-  } else {
-    return {
-      ...OriginThemeVars.CommonCssVars,
-      ...OriginThemeVars.ButtonCssVars
-    }
-  }
-})
 
 const typeClass = computed(() => buttonPrefix + '-' + unref(type))
 const sizeClass = computed(() => buttonPrefix + '-' + unref(size))

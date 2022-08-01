@@ -12,7 +12,8 @@ export const disabled = {
   default: undefined
 }
 export const themeOverride = {
-  type: Object
+  type: Object,
+  default: () => ({})
 }
 export const extendBaseProps = (props) => {
   return {

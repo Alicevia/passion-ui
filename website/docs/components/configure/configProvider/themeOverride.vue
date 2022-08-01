@@ -4,7 +4,7 @@
       <p-button type="primary">
         主题色覆盖
       </p-button>
-      <p-button class="ml-[10px]" type="primary" :button-theme-override="null">
+      <p-button class="ml-[10px]" type="primary" :theme-override="null">
         我就是要用最初的主题色
       </p-button>
     </layout>

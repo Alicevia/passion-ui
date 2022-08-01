@@ -39,7 +39,7 @@ import { computed, ref, toRef, toRefs } from 'vue'
 import { createFormProviderState } from '../../_store'
 import { basePrefix, extendFormProps } from '../../constants'
 import { formItemPrefix } from './constants'
-import { refDefault } from '@vueuse/core'
+import { reactiveOmit, refDefault } from '@vueuse/core'
 
 const props = defineProps(extendFormProps({
   label: {
@@ -47,7 +47,7 @@ const props = defineProps(extendFormProps({
     default: ''
   }
 }))
-const formItemState = createFormProviderState(props)
+const formItemState = createFormProviderState(reactiveOmit(props, 'label'))
 const { size } = toRefs(formItemState)
 const labelStyle = refDefault(toRef(formItemState, 'labelStyle'), {})
 
