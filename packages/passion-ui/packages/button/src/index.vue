@@ -61,7 +61,6 @@ const props = useFormProviderState(_props)
 
 const { type, ghost, dashed, text, disabled, themeOverride } = toRefs(props)
 const buttonCssVars = useConfigProviderState(themeOverride, 'Button')
-
 const size = refDefault(toRef(props, 'size'), 'medium')
 
 const typeClass = computed(() => buttonPrefix + '-' + unref(type))

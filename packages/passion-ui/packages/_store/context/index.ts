@@ -52,11 +52,10 @@ export function useConfigProviderState (themeOverrideRef, componentName) {
         ...themeVars[componentName],
         ...themeOverrideRef.value
       }
-    } else {
+    } else if (themeOverride === null) {
       return {
         ...OriginThemeVars.CommonCssVars,
         ...OriginThemeVars[componentName]
-
       }
     }
   })

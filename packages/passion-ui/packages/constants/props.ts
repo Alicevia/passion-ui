@@ -12,8 +12,7 @@ export const disabled = {
   default: undefined
 }
 export const themeOverride = {
-  type: Object,
-  default: () => ({})
+  type: Object
 }
 export const extendBaseProps = (props) => {
   return {
@@ -34,6 +33,9 @@ export const extendFormProps = (props) => {
       type: String
     },
     labelStyle: {
+      type: Object
+    },
+    rules: {
       type: Object
     },
     ...extendBaseProps(props)
