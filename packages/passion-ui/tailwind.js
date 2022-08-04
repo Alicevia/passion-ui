@@ -78,7 +78,7 @@ module.exports = {
   ],
   safelist: [
     {
-      pattern: /(h|text|p)-(mini|tiny|small|medium|large|huge)/
+      pattern: /(h|text|p|rounded)-(mini|tiny|small|medium|large|huge)/
       // variants: ['lg', 'hover', 'focus', 'lg:hover'],
     },
     {
@@ -105,14 +105,22 @@ module.exports = {
       },
       fontSize,
       padding,
-      borderRadius: {
-        DEFAULT: 'var(--border-radius)',
-        mini: 'var(--border-radius-mini)',
-        tiny: 'var(--border-radius-tiny)',
-        small: 'var(--border-radius-small)',
-        medium: 'var(--border-radius-medium)',
-        large: 'var(--border-radius-large)',
-        huge: 'var(--border-radius-huge)'
+      borderRadius: ({ theme }) => {
+        return {
+          DEFAULT: 'var(--border-radius)',
+          mini: 'var(--border-radius-mini)',
+          tiny: 'var(--border-radius-tiny)',
+          small: 'var(--border-radius-small)',
+          medium: 'var(--border-radius-medium)',
+          large: 'var(--border-radius-large)',
+          huge: 'var(--border-radius-huge)',
+          mini50: 'calc(theme(height.mini) / 2)',
+          tiny50: 'calc(theme(height.tiny) / 2)',
+          small50: 'calc(theme(height.small) / 2)',
+          medium50: 'calc(theme(height.medium) / 2)',
+          large50: 'calc(theme(height.large) / 2)',
+          huge50: 'calc(theme(height.huge) / 2)'
+        }
       },
       opacity: {
         opac1: 'var(--opacity-1)',

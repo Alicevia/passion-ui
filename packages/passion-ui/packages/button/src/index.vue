@@ -3,10 +3,10 @@
     :style="buttonCssVars"
     class="transition-all  leading-none border flex justify-center items-center box-border"
     :class="{
-      [roundClass]:round && !text,
-      [circleClass]:circle &&!text,
+      [`h-${size} text-${size} p-${size} rounded-${size}`]:true,
+      [`rounded-${size}50`]:round && !text,
+      [`rounded-${size}50 overflow-hidden`]:circle && !text,
       [typeClass]:true,
-      [sizeClass]:true,
       [ghostClass]:dashed||ghost,
       ['border-dashed']:dashed,
       [textClass]:text,
@@ -22,8 +22,8 @@
 <script setup lang='ts'>
 import { refDefault } from '@vueuse/core'
 import { toRefs, computed, unref, toRef } from 'vue'
-import { basePrefix, extendBaseProps } from '../../constants'
-import { useConfigProviderState, OriginThemeVars, useFormProviderState } from '../../_store'
+import { extendBaseProps } from '../../constants'
+import { useConfigProviderState, useFormProviderState } from '../../_store'
 import { types, buttonPrefix } from './constants'
 
 const _props = defineProps(extendBaseProps({
@@ -64,9 +64,6 @@ const buttonCssVars = useConfigProviderState(themeOverride, 'Button')
 const size = refDefault(toRef(props, 'size'), 'medium')
 
 const typeClass = computed(() => buttonPrefix + '-' + unref(type))
-const sizeClass = computed(() => buttonPrefix + '-' + unref(size))
-const roundClass = computed(() => basePrefix + '-' + size.value + '-round')
-const circleClass = computed(() => sizeClass.value + '-circle')
 const ghostClass = computed(() => typeClass.value + '-ghost')
 const textClass = computed(() => typeClass.value + '-text')
 const disabledClass = computed(() => buttonPrefix + '-disabled')
@@ -78,4 +75,7 @@ export default {
 }
 </script>
 <style scoped>
+.bb {
+  border-radius:calc(theme(height.medium) / 4)
+}
 </style>

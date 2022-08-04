@@ -8,9 +8,8 @@
     text-tc2
     inline-flex items-center w-full gap-2"
     :class="{
-      [basePrefix]:true,
       [inputPrefix]: true,
-      [sizeClass]: true,
+      [`text-${size} p-${size} h-${size} rounded-${size}`]: true,
       [roundClass]: round,
       [disabledClass]: disabled,
     }"
@@ -80,7 +79,7 @@ const _props = defineProps(extendBaseProps({
     default: '请输入'
   },
   value: {
-    type: String
+    type: [String, Number]
   }
 }))
 const props = useFormProviderState(_props)
@@ -106,9 +105,6 @@ const inputValue = computed({
 
 const roundClass = computed(() => {
   return `${basePrefix}-${size.value}-round`
-})
-const sizeClass = computed(() => {
-  return `${inputPrefix}-${size.value}`
 })
 
 const onChange = (e) => {

@@ -1,12 +1,6 @@
 import { sizes, basePrefix } from '../../../constants'
 export function baseSizeStyle ({ addComponents, theme }) {
   sizes.forEach(size => {
-    addComponents({
-      [`.${basePrefix}-${size}`]: {
-        height: theme(`height.${size}`),
-        fontSize: theme(`fontSize.${size}`)
-      }
-    })
     // round
     addComponents({
       [`.${basePrefix}-${size}-round`]: {
@@ -21,6 +15,7 @@ export function baseSizeStyle ({ addComponents, theme }) {
       lineHeight: 1
     }
   })
+  // disabled
   addComponents({
     [`.${basePrefix}-disabled`]: {
       cursor: 'not-allowed',

@@ -48,7 +48,6 @@ export function textStyle ({ addComponents, theme }) {
         [`&:not(.${buttonPrefix}-disabled):hover`]: {
           backgroundColor: 'unset',
           color: theme(`colors.${type}.hover`)
-
         },
         [`&:not(.${buttonPrefix}-disabled):focus`]: {
           backgroundColor: 'unset',

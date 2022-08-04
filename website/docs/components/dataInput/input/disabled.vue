@@ -8,7 +8,7 @@
 <script setup lang='ts'>
 import { sizes, PInput, message } from 'passion-ui'
 import { ref, watch } from 'vue'
-const value = ref(123)
+const value = ref('123')
 
 </script>
 <style scoped>
