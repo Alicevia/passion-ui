@@ -45,6 +45,8 @@ const handleClick = (e) => {
   size.value = e
 }
 
+console.log(23)
+
 </script>
 <style>
 body,html,#app {
